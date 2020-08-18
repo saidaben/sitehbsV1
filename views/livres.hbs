@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="javascripts/livre.js"></script>
+
+
+    <link rel="stylesheet" href="stylesheets/sortie.css">
+    <title>Rise Chils up! Loisir</title>
+</head>
+
+<body>
+    <section class="api">
+        <h2 id="apropos">Je <span>recher</span>che un livre</h2>
+
+        <p>Renseigner le champs ci dessous par catégorie (livre jeunesse, Bande dessinée jeunesse ou livre adultes). Par
+            auteur ou par titre de livre recherché.</p>
+
+        <input type="radio" value="type_de_documnt" name="tri">
+        <label for="tri">Adulte</label>
+
+        <input type="radio" value="type_de_documnt" name="tri" checked>
+        <label for="tri">Adolescent</label>
+        <input type="radio" value="type_de_documnt" name="tri" checked>
+        <label for="tri">Enfant</label>
+
+
+        <input id="input" type="text" placeholder="chercher un ouvrage...">
+        <ul id="ouvrages"></ul>
+    </section>
+
+
+    <a href="#up"> <img class="up" src="images/up.png" alt=""></a>
+</body>
+
+</html>

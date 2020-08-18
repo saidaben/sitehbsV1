@@ -1,0 +1,31 @@
+<hgroup>
+    <h2 class="apropos">Editer <span>mon ar</span>ticle</h2>
+    <h3>modifier</h3>
+</hgroup>
+
+<section class="contain">
+
+
+    <form method="post" action="/article/edit/{{article._id}}" class="form" enctype="multipart/form-data">
+        <div class="container-dashboard">
+            <label for="titre" class="is-clickable">Titre</label>
+            <input class="input" id="titre" type="text" name="titre" value="{{article.titre}}">
+
+            <label for="sous_titre" class="is-clickable">sous titre</label>
+            <input class="input" id="sous_titre" type="text" name="sous_titre" value="{{article.sous_titre}}">
+
+            <label for="contenu" class="is-clickable">Contenu</label value="{{article.contenu}}">
+            <input class="input" id="contenu" type="text" name="contenu">
+
+            {{!-- preview de l'image  --}}
+            <img src="{{article.image}}" alt="">
+            
+            <label for="image" class="is-clickable">image</label>
+            <input class="input" id="image" type="file" name="image" value="{{article.image}}">
+
+
+            <button class="btn">poster</button>
+    </form>
+
+    </div>
+</section>

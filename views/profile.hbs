@@ -1,0 +1,37 @@
+<section class="contain">
+  <hgroup>
+    <h2 id="apropos">Mon<span> Pro</span>file.</h2>
+    <h3> Bienvenue {{currentUser.username}}</h3> <img class="picto" src="{{currentUser.avatar}}" alt="">
+  </hgroup>
+
+<section class="container">
+  
+
+    <form method="post" action="/profile/edit/infos/{{currentUser._id}}" class="form" enctype="multipart/form-data">
+
+    <h2 class="title">Mettre à jour votre profil</h2>
+    <label for="input-username" class="is-clickable">username</label>
+    <input id="input-username" type="text" class="input" value="{{currentUser.username}}" name="username">
+    <label for="input-email" class="is-clickable">email</label>
+    <input id="input-email" type="email" class="input" value="{{currentUser.email}}" name="email">
+    <label for="input-avatar" class="is-clickable">changer d'avatar</label>
+    <input id="input-avatar" type="file" class="input" name="avatar">
+    <button class="btn">ok</button>
+</form>
+
+<hr>
+
+<form method="post" action="/profile/edit/password/{{user._id}}" class="form">
+    <h2 class="title">Mettre à jour votre mdp</h2>
+
+    <label for="input-old-password" class="is-clickable">ancien mot de passe</label>
+    <input id="input-old-password" type="password" class="input" name="oldPassword">
+    <label for="input-password" class="is-clickable">nouveau mot de passe</label>
+    <input id="input-password" type="password" class="input" name="password">
+    <button class="btn">ok</button>
+</form>
+</section>
+
+
+
+ </section>

@@ -1,0 +1,18 @@
+<section class="contain">
+    <hgroup>
+        <h2 id="apropos">Art<span>icles</span>.</h2>
+        <h3> lorem lorem lorem</h3>
+    </hgroup>
+
+    <section class="container">
+
+        {{#each articles}}
+
+        <figure class="blog"><a href="/art"></a> <img class="artblog" src="{{this.image}}" alt="">
+            <figcaption>{{this.titre}} <br> {{this.sous_titre}} </figcaption>
+        </figure>
+
+
+        {{/each}}
+    </section>
+</section>

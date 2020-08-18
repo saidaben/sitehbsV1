@@ -1,0 +1,26 @@
+
+  <h3 class="title">s'inscrire</h3>
+
+<form method="post" action="/sinscrire" class="form" >
+
+
+ <label for="avatar" class="">Avatar</label>
+        <input id="avatar" type="file" class="" name="avatar"> <br>
+
+  <label class="label" for="input-username">Votre pseudo</label>
+  <input id="input-username" class="input" type="text" placeholder="sera visible par les utilisateurs du site"
+    name="username" value="test-user" />
+
+  <label class="label" for="input-email">Votre email</label>
+  <input id="input-email" class="input" type="email" placeholder="doit être une adresse valide" name="email"
+    value="test@mail.com">
+
+  <label class="label" for="input-password">Votre mot de passe</label>
+  <input id="input-password" class="input" type="password" placeholder="assez complexe par mesure de sécurité"
+    name="password" value="fake-pass-12345">
+
+  {{!-- <label class="label" for="input-avatar">Votre avatar</label>
+  <input id="input-avatar" class="input" type="file" name="avatar"> --}}
+
+  <button class="btn">ok !</button>
+</form>

@@ -1,0 +1,41 @@
+<section class="contain">
+  <hgroup>
+    <h2 id="apropos">Editer<span> l'utilisa</span>teur.</h2>
+    <h3> <span title="{{user._id}}">{{user.username}}</span></h3>
+  </hgroup>
+
+  <section class="container">
+<table class="tabler">
+    <thead>
+        <tr class="row">
+            <th class="cell">avatar</th>
+            <th class="cell">username</th>
+            <th class="cell">mail</th>
+            <th class="cell">role</th>
+            <th class="cell">edit</th>
+            <th class="cell">delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each users}}
+        <tr class="row">
+            <td class="cell avatar">
+                <img src="{{this.avatar}}" alt="avatar de {{this.username}}">
+            </td>
+            <td class="cell">{{this.username}}</td>
+            <td class="cell">{{this.email}}</td>
+            <td class="cell">{{this.role}}</td>
+            <td class="cell">
+                <a href="/users/edit/{{this._id}}">e</a>
+            </td>
+            <td class="cell">
+                <form method="post" action="/users/delete/{{this._id}}">
+                    <button class="is-clickable">
+                      x
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table></section>

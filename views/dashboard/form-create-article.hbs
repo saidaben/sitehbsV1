@@ -1,0 +1,45 @@
+  
+<form method="post" action="/article" class="form"  >
+   {{!-- enctype="multipart/form-data" --}}
+   <hgroup >
+    <h2 class="apropos">Ajouter un <span>nouve</span>lle article</h2>
+    <h3>Remplissez les champs ci dessous pour construire votre article </h3>
+</hgroup>
+<section class="contain">
+
+
+
+<div class="container-dashboard">
+    <label for="titre" class="is-clickable">Titre</label>
+    <input class="input" id="titre" type="text" name="titre">
+
+    <label for="sous_titre" class="is-clickable">sous titre</label>
+    <input class="input" id="sous_titre" type="text" name="sous_titre">
+
+    <label for="contenu" class="is-clickable">Contenu</label>
+    <input class="input" id="contenu" type="text" name="contenu">
+
+
+    <label for="categorie" class="">categorie</label>
+      <select   id="categorie" class="" name="categorie" required>
+        <option value="-1" disabled selected> Choisir une categorie...</option>
+        <option value="partage d éxpérience">partage d éxpérience</option>
+        <option value="conseils de professionnel">conseils de professionnel</option>
+        
+      </select>
+
+
+
+
+
+
+ <label for="image" class="is-clickable">image</label>
+    <input class="input" id="image" type="file" name="image">
+
+
+
+    <button class="btn">poster</button>
+</form>
+
+</div> 
+</section>

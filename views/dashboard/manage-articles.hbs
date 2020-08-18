@@ -1,0 +1,50 @@
+ <hgroup >
+    <h2 class="apropos">Manager <span>mes ar</span>ticles</h2>
+    <h3>supr/modifier</h3>
+</hgroup>
+
+<section class="container">
+<table class="manage-articles">
+    <thead class="thead">
+      <tr class="th-manage-article">
+        <th class="th-manage-article">Titre</th>
+        <th class="th-manage-article">Sous titre</th>
+        <th class="th-manage-article">Contenue</th>
+        <th class="th-manage-article">Image</th>
+        <th class="th-manage-article">Catégorie</th>
+        <th class="th-manage-article">Edit</th>
+        <th class="th-manage-article">Delete</th>
+      </tr>
+    </thead>
+
+     <tbody>
+        {{#unless articles.length}}
+        <tr>
+            <td class="cell" colspan="7">
+                pas d'articles enregistrés pour le moment...
+            </td>
+        </tr>
+        {{/unless}}
+        {{#each articles}}
+        <tr class="row">
+            <td class="cell">{{this.titre}}</td>
+            <td class="cell">{{this.sous_titre}}</td>
+            <td class="cell">{{this.contenu}}</td>
+            <td class="cell">{{this.image}}</td>
+            <td class="cell">{{this.categorie}}</td>
+            <td class="cell">
+                {{!-- un lien cest tjrs un get!!!!!! --}}
+                <a href="/article/edit/{{this._id}}"><img  src="images/edit.svg" alt=""></a>
+            </td>
+            <td class="cell">
+                <form method="post" action="/article/delete/{{this._id}}">
+                    <button ><img  src="images/supr.svg" alt=""></button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+
+</section>
