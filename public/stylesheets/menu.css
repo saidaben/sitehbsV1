@@ -57,6 +57,8 @@
 }
 
 /* fin  */
+
+
 nav {
     display: flex;
     /* alignment horizonral */
@@ -83,7 +85,6 @@ header>a {
 .submenu{
     display: flex;
      flex-direction: column;
-     
       position: fixed;
       right: 274px;
       height: 100%;
@@ -124,9 +125,11 @@ header>a {
 
 .picto{width:40px;
 height: 40px;}
+
+
 /* /////////////////////* media query */
 
-/* inferieur a 768 */
+/* inferieur a 768 = tablette*/ 
 @media screen and (max-width:768px) {
 
 
@@ -135,7 +138,7 @@ height: 40px;}
         position: fixed;
         right: 0;
         height: 100%;
-        top: 26vh;
+        top: 0vh;
         background:white;
         display: flex;
         flex-direction: column;
@@ -168,16 +171,17 @@ height: 40px;}
         top: 13vh;
         left: 85%;
     }
+
 .boy{visibility: hidden;}
 
-.numerosun,
+/* .numerosun,
 .artblogb
  {
     min-width: 232px;
     height: 159px;;
   
-}
-.containerart {
+} */
+/* .containerart {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -188,8 +192,8 @@ height: 40px;}
     margin-bottom: 130px;
     border-radius: 10px;
   }
-  
-  .artblog {
+   */
+  /* .artblog {
     min-width: 100px;
     min-height: 100px;
     border: 5px solid white;
@@ -210,35 +214,30 @@ height: 40px;}
     flex-wrap: wrap;
     border: 5px solid white;
     margin: 5px;
-    box-shadow: 1px 2px 10px black;}
+    box-shadow: 1px 2px 10px black;} */
   
   
 
 
-.container{width: 498px;
-    margin-left: -75px;}
+/* .container{width: 498px;
+    margin-left: -75px;} */
 
 .slider{display: none;}
+
+
+
 .up{visibility: hidden}
-header {
-    height: 10px;}
 
-    .premiere,
-    .dernierarticles,
-    .nosvaleurs{top:70px}
 
-    .valpicto{    flex-direction: column;
-    }
+    .premiere, .dernierarticles 
+   {top:-700px}
 
-    p.ppropos{margin-right: 5px;}
+    
 
 
     .menu {
        position: fixed;}
       
-    
-.dernierarticles {
-        min-height: 917px;}
 
         .conteneur-rs {
             display: flex;
@@ -253,10 +252,10 @@ header {
             font-family: 'Josefin Sans', sans-serif;
         
         }
-        
+        h3.title{font-size: 24px;}     
 }
 
-/* inferieur a 500 */
+/* inferieur a 500 smartphone */
 
 @media screen and (max-width:500px){
     .container {

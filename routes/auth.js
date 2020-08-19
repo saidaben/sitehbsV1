@@ -75,14 +75,14 @@ router.post("/sidentifier", (req, res, next) => {
 });
 
 //insère les new user en bdd
-router.post("/sinscrire", (req, res, next) => {
+router.post("/sinscrire",uploader.single("avatar"), (req, res, next) => {
   const user = req.body;
-
+console.log(req.body,"gggggg")
   if (req.file) {
     // si un fichier a été uploadé
     user.avatar = req.file.secure_url; // on l'associe à user
   }
-
+console.log("....",user)
   if (!user.username || !user.password || !user.email) {
     // todo retourner un message d'erreur : remplir tous les champs requis + redirect
     req.flash("warning", "Merci de remplir tous les champs requis.");

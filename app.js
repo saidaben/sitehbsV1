@@ -9,6 +9,9 @@ const express = require("express");
 const app = express();
 const hbs = require("hbs");
 
+
+// app.use(favicon(__dirname + 'favicon.ico'));
+
 const createError = require("http-errors");
 const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
@@ -17,6 +20,8 @@ const session = require("express-session");
 
 const dev_mode = false;
 const logger = require("morgan");
+
+
 
 // config logger (pour debug)
 app.use(logger("dev"));
@@ -68,6 +73,18 @@ app.locals.site_url = process.env.SITE_URL;
 app.use(function (req, res, next) {
   next(createError(404));
 });
+
+// erreur 500
+app.use(function(error, req, res, next) {
+  res.send('Sorry...Cette page est inexistante', 500);
+});
+
+// //  500 en custom 
+// app.use(function(error, req, res, next) {
+//   res.status(500);
+// res.render('500.hbs', {title:'500: Cette page est inexistante', error: error});
+// });
+
 
 // error handler
 app.use(function (err, req, res, next) {

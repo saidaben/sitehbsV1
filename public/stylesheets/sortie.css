@@ -6,7 +6,7 @@
 }
 
 body {
-    background: rgb(221, 221, 221);
+    background: white;
 
 }
 
@@ -49,7 +49,7 @@ ul {
     min-height: 260px;
     display: block;
     text-align: center;
-    padding: 10px;
+    /* padding: 10px; */
     color: #282828;
     font-weight: 400;
     list-style: none;
@@ -57,12 +57,12 @@ ul {
     margin: 10px 10px 10px 10px;
     background: white;
     padding-top: 40px;
-    padding-left: 40px;
+    /* padding-left: 40px; */
     padding-bottom: 30px;
-    padding-right: 15px;
+    /* padding-right: 15px; */
     margin-bottom: 130px;
     border-radius: 10px;
-    box-shadow: inset 0 2px 5px 0 rgba(0, 0, 0, .11);
+    /* box-shadow: inset 0 2px 5px 0 rgba(0, 0, 0, .11); */
     box-shadow: 14px 7px 31px black;
 }
 
@@ -75,12 +75,15 @@ ul {
 }
 
 .api {
-    display: flex;
+
+  min-width: 100%;
     margin: auto;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    padding-top: 152px;
+
 }
 
 a {

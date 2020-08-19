@@ -1,26 +1,32 @@
 
-  <h3 class="title">s'inscrire</h3>
+ <section class="contain">
+    <hgroup>
+        <h2 id="apropos">S'<span>inscrire</span>.</h2>
+        <h3> lorem lorem lorem</h3>
+    </hgroup>
 
-<form method="post" action="/sinscrire" class="form" >
+
+<form class="container-inscr" method="post" action="/sinscrire" enctype="multipart/form-data" >
 
 
- <label for="avatar" class="">Avatar</label>
-        <input id="avatar" type="file" class="" name="avatar"> <br>
 
-  <label class="label" for="input-username">Votre pseudo</label>
-  <input id="input-username" class="input" type="text" placeholder="sera visible par les utilisateurs du site"
-    name="username" value="test-user" />
 
-  <label class="label" for="input-email">Votre email</label>
-  <input id="input-email" class="input" type="email" placeholder="doit être une adresse valide" name="email"
+  <label class="label" for="username">Votre pseudo</label> 
+  <input id="username" class="input" type="text" placeholder="sera visible par les utilisateurs du site"
+    name="username" value="test-user" /><br>
+
+  <label class="label" for="email">Votre email</label>
+ <br> <input id="email" class="input" type="email" placeholder="doit être une adresse valide" name="email"
     value="test@mail.com">
+<br>
+  <label class="label" for="password">Votre mot de passe</label>
+  <input id="password" class="input" type="password" placeholder="assez complexe par mesure de sécurité"
+    name="password" value="fake-pass-12345"><br>
 
-  <label class="label" for="input-password">Votre mot de passe</label>
-  <input id="input-password" class="input" type="password" placeholder="assez complexe par mesure de sécurité"
-    name="password" value="fake-pass-12345">
-
-  {{!-- <label class="label" for="input-avatar">Votre avatar</label>
-  <input id="input-avatar" class="input" type="file" name="avatar"> --}}
-
-  <button class="btn">ok !</button>
+ <label for="avatar" class="label">Choisir son Avatar</label>
+        <input id="avatar" type="file" class="" name="avatar"> <br>
+  
+<input type="submit" value="ok">
+  {{!-- <button class="btn">ok </button> --}}
 </form>
+</section>

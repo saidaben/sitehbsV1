@@ -1,7 +1,7 @@
 <section class="contain">
   <hgroup>
-    <h2 id="apropos">Mon<span> Pro</span>file.</h2>
-    <h3> Bienvenue {{currentUser.username}}</h3> <img class="picto" src="{{currentUser.avatar}}" alt="">
+    {{!-- <h2 id="apropos">Mon Profile.</h2> --}}
+    <h2> Bienve<span>nue {{currentUser.username}}</span></h2> <img class="picto" src="{{currentUser.avatar}}" alt="">
   </hgroup>
 
 <section class="container">
@@ -9,29 +9,33 @@
 
     <form method="post" action="/profile/edit/infos/{{currentUser._id}}" class="form" enctype="multipart/form-data">
 
-    <h2 class="title">Mettre à jour votre profil</h2>
-    <label for="input-username" class="is-clickable">username</label>
-    <input id="input-username" type="text" class="input" value="{{currentUser.username}}" name="username">
-    <label for="input-email" class="is-clickable">email</label>
-    <input id="input-email" type="email" class="input" value="{{currentUser.email}}" name="email">
+    <h3 class="title">Mettre à jour votre profil</h3>
+    <label for="input-username" class="label">username</label>
+    <input id="input-username" type="text" class="label" value="{{currentUser.username}}" name="username">
+    <label for="input-email" class="label">email</label>
+    <input id="input-email" type="email" class="label" value="{{currentUser.email}}" name="email">
     <label for="input-avatar" class="is-clickable">changer d'avatar</label>
-    <input id="input-avatar" type="file" class="input" name="avatar">
-    <button class="btn">ok</button>
-</form>
-
-<hr>
-
-<form method="post" action="/profile/edit/password/{{user._id}}" class="form">
-    <h2 class="title">Mettre à jour votre mdp</h2>
-
-    <label for="input-old-password" class="is-clickable">ancien mot de passe</label>
-    <input id="input-old-password" type="password" class="input" name="oldPassword">
-    <label for="input-password" class="is-clickable">nouveau mot de passe</label>
-    <input id="input-password" type="password" class="input" name="password">
-    <button class="btn">ok</button>
+    <input id="input-avatar" type="file" class="label" name="avatar">
+    <button class="btn label" >ok</button>
 </form>
 </section>
 
+<section class="container-inscr">
+<form method="post" action="/profile/edit/password/{{user._id}}" class="form">
+    <h3 class="title">Mettre à jour votre mdp</h3>
+
+    <label for="input-old-password" class="label">ancien mot de passe</label>
+    <input id="input-old-password" type="password" class="label" name="oldPassword">
+    <label for="input-password" class="label">nouveau mot de passe</label>
+    <input id="input-password" type="password" class="label" name="password">
+    <button class="btn label">ok</button>
+</form>
+<br>
+<p><i>En conformité avec le Règlement général sur la protection des données vous pouvez supprimer votre compte</i> </p>
+
+ <form method="post" action="/users/delete/{{currentUser._id}}">  <button ><img class="picto-nav" src="/images/supr.svg" alt=""></button></form>
+<p><u>(Attention cette action est définitive)</u></p>
+</section> 
 
 
  </section>

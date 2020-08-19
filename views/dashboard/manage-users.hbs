@@ -1,13 +1,13 @@
-<section class="contain">
+
   <hgroup>
     <h2 id="apropos">Editer<span> l'utilisa</span>teur.</h2>
     <h3> <span title="{{user._id}}">{{user.username}}</span></h3>
   </hgroup>
 
-  <section class="container">
+  <section class="container-inscr">
 <table class="tabler">
     <thead>
-        <tr class="row">
+        <tr >
             <th class="cell">avatar</th>
             <th class="cell">username</th>
             <th class="cell">mail</th>
@@ -18,20 +18,20 @@
     </thead>
     <tbody>
         {{#each users}}
-        <tr class="row">
+        <tr >
             <td class="cell avatar">
-                <img src="{{this.avatar}}" alt="avatar de {{this.username}}">
+                 <img class="picto-nav" src="{{this.avatar}}" alt="">
             </td>
             <td class="cell">{{this.username}}</td>
             <td class="cell">{{this.email}}</td>
             <td class="cell">{{this.role}}</td>
             <td class="cell">
-                <a href="/users/edit/{{this._id}}">e</a>
+                <a href="/users/edit/{{this._id}}"><img class="picto-nav" src="/images/edit.svg" alt=""></a>
             </td>
             <td class="cell">
                 <form method="post" action="/users/delete/{{this._id}}">
-                    <button class="is-clickable">
-                      x
+                    <button >
+                      <img class="picto-nav" src="/images/supr.svg" alt="">
                     </button>
                 </form>
             </td>

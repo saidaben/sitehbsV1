@@ -54,40 +54,27 @@ router.get('/create-article', protectAdminRoute, function (req, res, next) {
 });
 
 
-// router.post('/article', protectAdminRoute,   
-// uploader.single("image"),
-// (req, res) =>{
-//   console.log(req.file)
-//   articleModel.create(req.body)
-//   .then(dbRes => {
-// console.log(dbRes)
-//   })
-//   .catch(dbErr =>{
-//     console.log(dbErr)
-//   })
-//   res.redirect("/dashboard");
+router.post('/article', protectAdminRoute,   
+uploader.single("image"),
+(req, res) =>{
+  //eclate les clefs de req body et les stocker ds un obj new product qui va contenir le secur url qu'on vas porter a la vue
+  const newArticle ={...req.body};
+  if (req.file) newArticle.image =req.file.secure_url;
 
-// });
+  console.log(req.file);
+  console.log(newArticle);
 
-router.post('/article', protectAdminRoute,
-  uploader.single("image"), (req, res, next) => {
-    const newArticle = {
-      ...req.body
-    };
+  articleModel.create(newArticle)
+  .then(dbRes => {
+console.log(dbRes)
+  })
+  .catch(dbErr =>{
+    console.log(dbErr)
+  })
+  res.redirect("/dashboard");
 
-    if (req.file) newArticle.image = req.file.secure_url;
-    console.log(">>>", req.file);
-    console.log(">>> new art", newArticle);
+});
 
-    articleModel
-      .create(newArticle)
-      .then((dbRes) => {
-        res.redirect("/dashboard");
-      })
-      .catch(next)
-
-
-  });
 
 
 
@@ -106,8 +93,22 @@ router.get("/articles", (req, res) => {
     });
 });
 
+// test afficher un  seul article************************************
+router.get("/art/:id", async (req, res, next) => {
+ 
+  try {
+    const article = await articleModel.findById(req.params.id);
+    // await le resultat d'une action asynchrone
+    res.render("art", { article, title: article.titre });
+  } catch (dbErr) {
+    next(dbErr);
+  }
+});
+
+
 
 router.get("/manage-articles", protectAdminRoute, function (req, res, next) {
+  
   res.render('manage-articles', {
     title: 'Manage articles'
   });

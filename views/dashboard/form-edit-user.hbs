@@ -1,25 +1,26 @@
 
-<section class="contain">
+ <section class="contain">
   <hgroup>
-    <h2 id="apropos">Editer<span> l'utilisa</span>teur.</h2>
-    <h3> <span title="{{user._id}}">{{user.username}}</span></h3>
+    <h2 id="apropos">Mettre à <span>jour le role</span> de:</h2>
+    <h3>  {{user._id}}-{{user.username}}</h3>
   </hgroup>
 
 
-<section class="container">
-<form method="post" action="/users/edit/{{user._id}}" class="form">
 
-    <h2 class="title">Choisir un role</h2>
-    <div class="flex row">
-        <label for="radio-user" class="is-clickable">user</label>
+<form method="post" action="/users/edit/{{user._id}}" class="form container-inscr">
+
+    
+    <div class="role">
+        <label for="radio-user" class="label">user</label>
         <input id="radio-user" name="role" value="user" type="radio" >
         
-        <label for="radio-editor" class="is-clickable">editor</label>
+        <label for="radio-editor" class="label">editor</label>
         <input id="radio-editor" name="role" value="editor" type="radio" >
        
-        <label for="radio-admin" class="is-clickable">admin</label>
+        <label for="radio-admin" class="label">admin</label>
         <input id="radio-admin" name="role" value="admin" type="radio" >
     </div>
     <button class="btn">ok</button>
 
-</form></section>
+</form>
+</section>

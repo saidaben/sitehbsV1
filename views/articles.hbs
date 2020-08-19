@@ -4,12 +4,12 @@
         <h3> lorem lorem lorem</h3>
     </hgroup>
 
-    <section class="container">
+    <section class="container-art">
 
         {{#each articles}}
 
         <figure class="blog"><a href="/art"></a> <img class="artblog" src="{{this.image}}" alt="">
-            <figcaption>{{this.titre}} <br> {{this.sous_titre}} </figcaption>
+            <figcaption>{{this.titre}} <br> <a href="/art/{{this._id}}">Accédez à l'article</a></figcaption>
         </figure>
 
 

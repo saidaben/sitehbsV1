@@ -2,16 +2,16 @@
 
     <section class="deuxieme">
         <hgroup>
-            <h2 id="apropos"><span>Lore</span>m ipsum.</h2>
-            <h3> dolor sit amet consectetur adipisicing elit.</h3>
+            <h2 id="apropos">{{article.titre}}</h2>
+            <h3> <span>{{article.sous_titre}}</span></h3>
         </hgroup>
 
         <div class="container">
-            <figure class="blog"><img class="artblog" src="images/un.jpg" alt="">
+            <figure class="blog"><img class="artblog" src="{{article.image}}" alt="">
                 <figcaption>dolor sit amet</figcaption>
             </figure>
 
-           <div class="para"> <p class="ptexte">{{Article.contenu}}
+           <div class="para"> <p class="ptexte">{{article.contenu}}
                 </p>
             </div>
         </div>

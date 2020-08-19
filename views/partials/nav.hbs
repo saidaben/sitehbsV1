@@ -1,14 +1,15 @@
 <!-- navigation -->
+<header>
 <section class="menu">
-    <a href="/"> <img class="logo" src="images/test.svg" alt=""></a>
+    <a href="/"> <img class="logo" src="/images/test.svg" alt=""></a>
     <nav>
 
         <ul class="nav-links" id="up">
 
-            <li><img class="picto-nav" src="images/home.svg" alt=""><a href="/">Accueil</a></li>
+            <li><img class="picto-nav" src="/images/home.svg" alt=""><a href="/">Accueil</a></li>
 
             <div class="dropdown">
-                <li class="dropbtn"><img class="picto-nav " src="images/jeuxx.svg" alt=""><a href="#">Loisirs</a></li>
+                <li class="dropbtn"><img class="picto-nav " src="/images/jeuxx.svg" alt=""><a href="#">Loisirs</a></li>
 
                 <div class="dropdown-content">
                     <a href="/sorties">Sorties familiales</a>
@@ -18,12 +19,12 @@
 
             </div>
 
-            <li><img class="picto-nav" src="images/blog.svg" alt=""> 
-            <a href="/blog">Blog</a></li>
+            <li><img class="picto-nav" src="/images/blog.svg" alt=""> 
+            <a href="/articles">Blog</a></li>
 
             <div class="dropdown">
                 {{#unless isLoggedIn}}
-            <li><img class="picto-nav" src="images/Adm.svg" alt="">
+            <li><img class="picto-nav" src="/images/Adm.svg" alt="">
               
                 <a href="/sinscrire">Admin</a></li>
                 
@@ -37,7 +38,7 @@
 
                     <div class="dropdown">
 
-                    <li><img class="picto-nav" src="images/profil.svg" alt=""><a href="/profile"> profile</a></li>
+                    <li><img class="picto-nav" src="/images/profil.svg" alt=""><a href="/profile"> profil</a></li>
 
                     <div class="dropdown-content">
                     {{/if}}
@@ -49,7 +50,7 @@
              
             </div>
              {{#if isLoggedIn}}
-            <li><a href="/deconnexion"><img class="picto-nav" src="images/logout.svg" alt="">  </a></li>                
+            <li><a href="/deconnexion"><img class="picto-nav" src="/images/logout.svg" alt="">  </a></li>                
                    {{/if}}  
         </ul>
     </nav>
@@ -57,4 +58,4 @@
 
 </section>
 
-<div class="burger"> <img class="spanburger" src="images/nav.png" alt=""></div>
+<div class="burger"> <img class="spanburger" src="/images/nav.png" alt=""></div>
