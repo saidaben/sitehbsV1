@@ -8,11 +8,12 @@
 
         <div class="container">
             <figure class="blog"><img class="artblog" src="{{article.image}}" alt="">
-                <figcaption>dolor sit amet</figcaption>
+                <figcaption> <span class="date">{{article.date}}</span></figcaption>
             </figure>
 
            <div class="para"> <p class="ptexte">{{article.contenu}}
                 </p>
+                
             </div>
         </div>
 
@@ -20,4 +21,4 @@
     </section>
     <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v8.0" nonce="cfIJrNzd"></script>
-<div class="fb-comments" data-href="http://localhost:3000/art" data-numposts="10" data-width=""></div>
+<div class="fb-comments" data-href="http://localhost:3000/art/{{article.id}}" data-numposts="10" data-width=""></div>

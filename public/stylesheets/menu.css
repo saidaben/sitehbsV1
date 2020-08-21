@@ -126,12 +126,16 @@ header>a {
 .picto{width:40px;
 height: 40px;}
 
-
+.tester{display: none;}
+.citation{display: block;}
 /* /////////////////////* media query */
 
 /* inferieur a 768 = tablette*/ 
 @media screen and (max-width:768px) {
 
+.citation{display: none;}
+.tester{display: block;
+    margin: auto}
 
     .spanburger{z-index: 4;}
     .nav-links {

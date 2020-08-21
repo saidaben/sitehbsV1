@@ -113,7 +113,7 @@ router.post("/users/edit/:id",protectAdminRoute, (req, res, next) => {
     .findByIdAndUpdate(req.params.id, req.body)
     .then(dbRes => {
       console.log("edit one user >>>> ", dbRes);
-      res.redirect("/dashboard/manage-articles");
+      res.redirect("/dashboard/manage-users");
     })
     .catch(next);
 });
@@ -125,7 +125,7 @@ router.post("/users/delete/:id",protectAdminRoute, (req, res, next) => {
     .findByIdAndDelete(req.params.id)
     .then((dbRes) => {
       //console.log("delete one users >>> ", dbRes);
-      res.redirect("/dashboard/manage-articles");
+      res.redirect("/dashboard/manage-users");
     })
     .catch(next);
 });

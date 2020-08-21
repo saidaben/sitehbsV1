@@ -6,10 +6,16 @@ const userSchema = new Schema({
   
   avatar: {
     type: String,
-    default: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTPyGNr2qL63Sfugk2Z1-KBEwMGOfycBribew&usqp=CAU",
+    default: "https://nsa40.casimages.com/img/2020/08/20/200820120014245835.png",
   },
   username: String,
   email: String,
+
+  date_inscription:{
+    type: Date,
+    default: Date.now
+  },
+  
   password: {
     min: 4,
     required: true,
