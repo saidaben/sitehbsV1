@@ -8,7 +8,7 @@ require("./helpers/hbs"); // utils for hbs templates
 const express = require("express");
 const app = express();
 const hbs = require("hbs");
-
+var nodemailer = require('nodemailer');
 
 // app.use(favicon(__dirname + 'favicon.ico'));
 
@@ -35,6 +35,8 @@ hbs.registerPartials(__dirname + "/views/partials");
 //recup valeur posté ds un objet res.body 
 app.use(express.json()); //async
 app.use(express.urlencoded({ extended: false }));  //synchrone
+
+
 
 
 app.use(cookieParser()); //recup les cookies sous forme dobj req.cookie

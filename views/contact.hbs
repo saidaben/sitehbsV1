@@ -1,9 +1,29 @@
- <form role="form" action="/contact" method="post">
-      <div class="container">
-          
-	    <label for="subject">Sujet</label>
-	    <input type="text" name="subject"  required placeholder="Sujet">
-	  </div>
+      
+   <hgroup >
+    <h2 class="apropos">Formul<span>aire </span>de contact</h2>
+    <h3>Remplissez les champs ci dessous nous traiterons votre demande dès que possible. </h3>
+</hgroup>
+ 
+
+ 
+
+ <form class="form container-dashboard" role="form" action="/contact" method="post">
+
+           <ul class="entete-contact">
+          <li> <img class="picto-nav" src="images/mail.png" alt=""> Rise-up@gmail.com</li>
+          <li> <img class="picto-nav" src="images/tel.png" alt=""> 07.72.12.52.85</li>
+        </ul>
+
+	    {{!-- <label for="subject">Sujet</label>
+	    <input type="text" name="subject"  required placeholder="Sujet"> --}}
+	 
+     <label for="sujet" class="label">Sujet</label>
+      <select class="label"  id="sujet" class="" name="sujet" required>
+        <option value="-1" disabled selected> Choisir un sujet...</option>
+        <option value="Demande de partenariat">Demande de partenariat</option>
+        <option value="Partage d'experience">Partage d'experience</option>
+        <option value="Entrer en contact avec un de nos auteurs">Entrer en contact avec un de nos auteurs</option>
+      </select
 
 	  
 	    <label for="email">Email</label>
