@@ -1,41 +1,62 @@
-<section class="contain">
-  <hgroup>
-    {{!-- <h2 id="apropos">Mon Profile.</h2> --}}
-    <h2> Bienve<span>nue {{currentUser.username}}</span></h2> <img class="picto" src="{{currentUser.avatar}}" alt="">
-  </hgroup>
 
-<section class="container">
+<hgroup>
+<h2> Bienve<span>nue {{currentUser.username}}</span> <img class="picto" src="{{currentUser.avatar}}" alt=""></h2> 
+  
+  </hgroup>
+  
+<section class="contain">
+ 
+     <hgroup class="hgroup-profil">
+        <h2 id="apropos">Mettre <span>à jour mon profil</span>.</h2>
+        <h3> Remplir les champs ci dessous.</h3>
+    </hgroup>
+ 
+
   
 
-    <form method="post" action="/profile/edit/infos/{{currentUser._id}}" class="form" enctype="multipart/form-data">
+    <form method="post" action="/profile/edit/infos/{{currentUser._id}}" class="container-inscr" enctype="multipart/form-data">
 
-    <h3 class="title">Mettre à jour votre profil</h3>
-    <label for="input-username" class="label">username</label>
-    <input id="input-username" type="text" class="label" value="{{currentUser.username}}" name="username">
-    <label for="input-email" class="label">email</label>
-    <input id="input-email" type="email" class="label" value="{{currentUser.email}}" name="email">
-    <label for="input-avatar" class="is-clickable">changer d'avatar</label>
-    <input id="input-avatar" type="file" class="label" name="avatar">
-    <button class="btn label" >ok</button>
+   
+    <label for="input-username" class="label"><b>Nom d'utilisateur</b></label>
+    <input id="input-username" type="text" class="input" value="{{currentUser.username}}" name="username">
+    <label for="input-email" class="label"><b>Email</b></label>
+    <input id="input-email" type="email" class="input" value="{{currentUser.email}}" name="email">
+    <label for="input-avatar" class="is-clickable"><b>Changer d'avatar</b></label>
+    <input id="input-avatar" type="file" class="input" name="avatar"> <br>
+    <button class="button-poster" ><b>Mettre à jours</b></button>
 </form>
-</section>
 
-<section class="container-inscr">
-<form method="post" action="/profile/edit/password/{{user._id}}" class="form">
-    <h3 class="title">Mettre à jour votre mdp</h3>
+ <hgroup class="hgroup-profil">
+        <h2 class="apropos">Mettre à jour mon mot <span>de passe</span>.</h2>
+        <h3> Remplir les champs ci-dessous .</h3>
+    </hgroup>
 
-    <label for="input-old-password" class="label">ancien mot de passe</label>
-    <input id="input-old-password" type="password" class="label" name="oldPassword">
-    <label for="input-password" class="label">nouveau mot de passe</label>
-    <input id="input-password" type="password" class="label" name="password">
-    <button class="btn label">ok</button>
+<form method="post" action="/profile/edit/password/{{user._id}}" class="container-inscr">
+ 
+
+    <label for="input-old-password" class="label"><b>Ancien mot de passe</b></label>
+    <input id="input-old-password" type="password" class="input" name="oldPassword">
+    <label for="input-password" class="label"><b>Nouveau mot de passe</b></label>
+    <input id="input-password" type="password" class="input" name="password"> <br>
+    <button class="button-poster">Mettre à jours</button>
 </form>
-<br>
-<p><i>En conformité avec le Règlement général sur la protection des données vous pouvez supprimer votre compte</i> </p>
 
- <form method="post" action="/users/delete/{{currentUser._id}}">  <button ><img class="picto-nav" src="/images/supr.svg" alt=""></button></form>
-<p><u>(Attention cette action est définitive)</u></p>
-</section> 
+
+<hgroup class="hgroup-profil">
+        <h2 class="apropos">Je supprime <span> mon compte</span>.</h2>
+        <h3> Cette action est définitive .</h3>
+    </hgroup>
+
+  
+
+
+
+ <form method="post" class="container-inscr" action="/users/delete/{{currentUser._id}}"> 
+ <p><i>En conformité avec le Règlement général sur la protection des données vous pouvez supprimer votre compte</i> </p>
+ <br> <button ><img class="picto-nav" src="/images/supr.svg" alt=""></button>
+ </form>
+
+
 
 
  </section>

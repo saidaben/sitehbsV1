@@ -2,61 +2,78 @@ const URLB = "https://opendata.paris.fr/api/records/1.0/search/?dataset=que-fair
 const list = document.getElementById("sortie"); //On récupère notre URL, on appel notre ul  list
 const input = document.getElementById("inputb"); //on récupère notre input
 
-function getDatab(){
+function getDatab() {
     axios //on utilise axios
-    .get(URLB) //pr recup (get) les donnees localisées a cette url
-    .then((res) => displayb(res.data.records)) //si succes requete:on affiche
-    .catch((err) => console.error(err)); //sinn on log err ds la consol
+        .get(URLB) //pr recup (get) les donnees localisées a cette url
+        .then((res) => displayb(res.data.records)) //si succes requete:on affiche
+        .catch((err) => console.error(err)); //sinn on log err ds la consol
 
 }
+
 function displayb(sorties) { //stations est un tableau d'objet
-   
-const list = document.getElementById("sortie");// on recup le ul ds lequel on veut realiser l'affichage
 
-sorties.forEach((sortie) =>{ //parcours de chaques sortie avc une boucle
-    const li = document.createElement("li"); //crea li h2 p
-    const h3 = document.createElement("h3"); 
-    const h4 = document.createElement("h4"); 
-    const h6 = document.createElement("h6")
-    const p = document.createElement("p");
-    const pix = document.createElement("figure")
-    const button = document.createElement ("button")
-    // const h6 = document.createElement()
-   
-    
-    li.className = "item";//ajout dune class css
-    h3.textContent =  sortie.fields.category ;
-     //affichage category titre
-    h3.style.color = "grey";
-    h4.textContent =  sortie.fields.title;
-    h4.style.color = "#ffa8d2";
-    h4.style.margin = "10px 10px 10px 10px";
-    pix.innerHTML= `<img class="imgsortie" src=images/sortie.jpg >`;
-    pix.style.margin= "20px 10px 20px 10px";
-    h6.innerHTML = `<img class="date" src=images/date.png> ${sortie.fields.date_description}  <br> <img class="price" src=images/price.png> Tarif:  ${sortie.fields.price_type} <br> <img class="date" src=images/lieux.png> Adresse:
-    ${sortie.fields.address_name} `;
-    button.innerHTML = `<a target="_blank" href="${sortie.fields.contact_url}">En savoir plus </button> </a>`;
-    // button.style.backgroundColor = "#ffeb99";
-    // button.style.border = "#ffeb99";
+    const list = document.getElementById("sortie"); // on recup le ul ds lequel on veut realiser l'affichage
 
-    li.appendChild(h3);//on insert le titre ds le li titre enfant de li
-    li.appendChild(h4);
-    li.appendChild(pix)
-    li.appendChild(h6);
-    
-    p.innerHTML = `
+    sorties.forEach((sortie) => { //parcours de chaques sortie avc une boucle
+        const li = document.createElement("li"); //crea li h2 p
+        const h3 = document.createElement("h3");
+        const h4 = document.createElement("h4");
+        const h6 = document.createElement("h6")
+        const div = document.createElement("div")
+        const p = document.createElement("p");
+        const pix = document.createElement("figure")
+        const button = document.createElement("button")
+        // const h6 = document.createElement()
+
+
+        li.className = "item"; //ajout dune class css
+        h3.textContent = sortie.fields.category;
+        //affichage category titre
+        h3.style.color = "grey";
+        h3.style.backgroundColor="lavenderblush";
+        h4.textContent = sortie.fields.title;
+        h4.style.color = "#ffa8d2";
+        h4.style.margin = "10px 10px 10px 10px";
+        pix.innerHTML = `<img itemprop="image" class="imgsortie" src=images/sortie.jpg >`;
+        pix.style.margin = "20px 10px 20px 10px";
+
+div.innerHTML = `<figure class="essai"> <img  itemprop="date" class="date teste" src=images/date.png> ${sortie.fields.date_description}</figure>  
+<figure class="essai"> <img  itemprop="price" class="price teste" src=images/price.png>Tarif:  ${sortie.fields.price_type}</figure>   
+<figure class="essai"><img  itemprop="address" class="date teste" src=images/lieux.png> Adresse:${sortie.fields.address_name} <br> ${sortie.fields.address_zipcode} ${sortie.fields.address_city}  </figure>  
+ ` ;
+    //     h6.innerHTML = `<img itemprop="date" class="date" src=images/date.png> ${sortie.fields.date_description}  <br> <img itemprop="price" class="price" src=images/price.png> Tarif:  ${sortie.fields.price_type} <br> <img itemprop="address" class="date" src=images/lieux.png> Adresse:
+    // ${sortie.fields.address_name} `;
+    div.style.backgroundColor = "lavenderblush";
+        h6.style.paddingBottom = "20px";
+        h6.style.fontSize = "15px";
+
+
+
+        button.innerHTML = `<a itemprop="email" target="_blank" href="${sortie.fields.contact_url}">En savoir + </button> </a >`;
+        button.style.backgroundColor = "lavenderblush";
+        button.style.borderColor = "black";
+        button.style.height = "40px";
+        button.style.width = "90px";
+
+        li.appendChild(h3); //on insert le titre ds le li titre enfant de li
+        li.appendChild(h4);
+        li.appendChild(pix)
+        li.appendChild(div);
+        li.appendChild(h6);
+
+        p.innerHTML = `
      <br> ${sortie.fields.lead_text} <br> `; //affichage descr
-   p.style.margin = "30px";
-   p.style.textAlign ="justify"
-   p.style.fontSize ="20px" ;
-   
-    li.appendChild(p);//p ds le li
-    li.appendChild(button);
-    li.onclick = handleClickb; //avc creatElement on peur associer des listner/handler directement sur lobjet généré
-    list.appendChild(li);
-     //enfin on insere le li constitué ds le il
-    
-});
+        p.style.margin = "30px";
+        p.style.textAlign = "justify"
+        p.style.fontSize = "20px";
+
+        li.appendChild(p); //p ds le li
+        li.appendChild(button);
+        li.onclick = handleClickb; //avc creatElement on peur associer des listner/handler directement sur lobjet généré
+        list.appendChild(li);
+        //enfin on insere le li constitué ds le il
+
+    });
 }
 
 function handleClickb(evt) { //togle une class css is active sur chaque li cliqué
@@ -89,8 +106,4 @@ input.oninput = filtersorties //on affiche la list qu'on à  filtré précédeme
 
 
 
-getDatab();//on lance le programme en allant chercher les donnees via l api d'open data paris */}
-
-
-
-
+getDatab(); //on lance le programme en allant chercher les donnees via l api d'open data paris */}

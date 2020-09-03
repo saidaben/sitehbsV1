@@ -7,43 +7,43 @@
 
 
 
-<form method="post" action="/article" class="form container-dashboard" enctype="multipart/form-data">
+<form method="post" action="/article" class="container-inscr" enctype="multipart/form-data">
   
 
-    <label for="titre" class="label">Titre</label>
-    <input class="input" id="titre" type="text" name="titre" class="label"><br>
+    <label for="titre" class="label"><b>Titre</b></label>
+    <input class="input" id="titre" type="text" name="titre" class="label">
 
 
-    <label for="date" class="label">Date</label>
-    <input class="input" id="date" type="date" name="date" class="label"><br>
+    <label for="date" class="label"><b>Date</b></label>
+    <input class="input" id="date" type="date" name="date" class="label">
 
-    <label for="sous_titre" class="is-clickable">sous titre</label>
-    <input class="label" id="sous_titre" type="text" name="sous_titre"><br>
+    <label for="sous_titre" class="is-clickable"><b>Sous titre</b></label>
+    <input class="input" id="sous_titre" type="text" name="sous_titre">
 
-    <label for="contenu" class="is-clickable">Contenu</label>
+    <label for="contenu" class="is-clickable"><b>Contenu</b></label>
     {{!-- <input class="label" id="contenu" type="text" name="contenu" ><br> --}}
 
-      <textarea name="contenu"  required placeholder="Votre message" rows="3"></textarea><br>
+      <textarea class="input" name="contenu"  required placeholder="Votre message" rows="10"></textarea>
 
-<label for="auteur" class="is-clickable">Auteur</label>
-    <input class="label" id="auteur" type="text" name="auteur"><br>
+<label for="auteur" class="is-clickable"><b>Auteur</b></label>
+    <input class="input" id="auteur" type="text" name="auteur">
 
 
-    <label for="categorie" class="label">categorie</label><br>
-      <select class="label"  id="categorie" class="" name="categorie" required>
+    <label for="categorie" class="label"><b>Categorie</b></label>
+      <select class="input" class="label"  id="categorie" class="" name="categorie" required>
         <option value="-1" disabled selected> Choisir une categorie...</option>
-        <option value="partage d éxpérience">partage d éxpérience</option>
-        <option value="conseils de professionnel">conseils de professionnel</option>
+        <option value="partage d éxpérience">Partage d éxpérience</option>
+        <option value="conseils de professionnel">Conseils de professionnel</option>
         
       </select><br>
 
 
- <label for="image" class="label">image</label>
-    <input class="label" id="image" type="file" name="image">
+ <label for="image" class="label"><b>Image</b></label>
+    <input class="input" id="image" type="file" name="image">
 
 
 <br>
-    <button class="btn label">poster</button>
+    <button class="button-poster">Poster</button>
 </form>
 
 </section>

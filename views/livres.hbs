@@ -1,40 +1,20 @@
-<!DOCTYPE html>
-<html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="module" src="javascripts/livre.js"></script>
+    <section class="api-livres">
+  <hgroup>
+            <h2 id="apropos"><span>Je recherche </span>un livre.</h2>
+            <h3> Renseigner le champs ci dessous par catégorie (livre jeunesse, Bande dessinée jeunesse ou livre adultes). Ou par titre de livre recherché.</h3>
+        </hgroup>
 
 
-    <link rel="stylesheet" href="stylesheets/sortie.css">
-    <title>Rise Chils up! Loisir</title>
-</head>
+     <input class="triType" type="radio" value="type" name="type-tri" >
+        <label for="triType">Recherche par Type de lecture</label>
 
-<body>
-    <section class="api">
-        <h2 id="apropos">Je <span>recher</span>che un livre</h2>
+        <input class="triNom" type="radio" value="nom" name="type-tri" checked>
+        <label for="type-tri">Recherche par Titre de livre</label>
 
-        <p>Renseigner le champs ci dessous par catégorie (livre jeunesse, Bande dessinée jeunesse ou livre adultes). Par
-            auteur ou par titre de livre recherché.</p>
-
-        <input type="radio" value="type_de_documnt" name="tri">
-        <label for="tri">Adulte</label>
-
-        <input type="radio" value="type_de_documnt" name="tri" checked>
-        <label for="tri">Adolescent</label>
-        <input type="radio" value="type_de_documnt" name="tri" checked>
-        <label for="tri">Enfant</label>
-
-
-        <input id="input" type="text" placeholder="chercher un ouvrage...">
+        <input type="text" id="input-livre" placeholder="Recherche un livre">
         <ul id="ouvrages"></ul>
     </section>
 
 
     <a href="#up"> <img class="up" src="images/up.png" alt=""></a>
-</body>
-
-</html>

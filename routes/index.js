@@ -35,6 +35,11 @@ router.get("/contact", function (req, res, next){
   res.render('contact',{title:'formulaire de contact'});
 });
 
+//get mentions legales
+router.get("/mentionslegales", function (req, res, next){
+  res.render('mentionslegales',{title:'Mentions Legales'});
+});
+
 //testtt form contact
 
 router.post('/contact', function(req, res, next){
