@@ -68,8 +68,15 @@ router.post("/sidentifier", (req, res, next) => {
       const { _doc: clone } = { ...user }; // je clone l'user
       delete clone.password; // je supprime le mdp du clone (pas besoin de le stocker ailleurs qu'en bdd)
       req.session.currentUser = clone; // j'inscris le clone dans la session (pour maintenir un état de connexion)
-      // - redirection profile
-      res.redirect("/dashboard");
+     
+
+  //si t'es admin redirige vers le dashboard sinn vers le dashboard editor sinn pr user redirige profil
+  if (req.session.currentUser && req.session.currentUser.role === "admin")
+  res.redirect("/dashboard");
+  if (req.session.currentUser && req.session.currentUser.role === "editor")
+ res.redirect("/dashboard-editor");
+     else  
+     res.redirect("/profile"); 
     })
     .catch(next);
 });
@@ -84,7 +91,7 @@ console.log(req.body,"gggggg")
   }
 console.log("....",user)
   if (!user.username || !user.password || !user.email) {
-    // todo retourner un message d'erreur : remplir tous les champs requis + redirect
+    //  retourner un message d'erreur : remplir tous les champs requis + redirect
     req.flash("warning", "Merci de remplir tous les champs requis.");
     res.redirect("/sinscrire");
   } else {

@@ -18,7 +18,7 @@ const flash = require("connect-flash");
 const mongoose = require("mongoose");
 const session = require("express-session");
 
-const dev_mode = false;
+const dev_mode = true;
 const logger = require("morgan");
 
 
@@ -53,7 +53,7 @@ app.use(
 app.use(flash());
 
 // import de middlewares customs
-if (dev_mode === true) {
+if (dev_mode === false) {
   app.use(require("./middlewares/devMode")); // active le mode dev pour éviter les deconnexions
   app.use(require("./middlewares/debugSessionInfos")); // affiche le contenu de la session
 }

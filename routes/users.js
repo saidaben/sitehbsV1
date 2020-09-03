@@ -118,14 +118,20 @@ router.post("/users/edit/:id",protectAdminRoute, (req, res, next) => {
     .catch(next);
 });
 
-//suppr le users
-router.post("/users/delete/:id",protectAdminRoute, (req, res, next) => {
+
+
+// router.get("/deconnexion", (req, res) => {
+//   req.session.destroy(() => res.redirect("/sidentifier"));
+// });
+
+//suppr le users et redirige vers deconnexion qui destroy la session
+router.post("/users/delete/:id", (req, res, next) => {
  
   userModel
     .findByIdAndDelete(req.params.id)
     .then((dbRes) => {
       //console.log("delete one users >>> ", dbRes);
-      res.redirect("/dashboard/manage-users");
+      res.redirect("/deconnexion");
     })
     .catch(next);
 });

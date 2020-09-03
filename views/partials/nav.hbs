@@ -1,7 +1,7 @@
 <!-- navigation -->
 <header>
 <section class="menu">
-    <a href="/"> <img itemprop="logo" class="logo" src="/images/test.svg" alt=""></a>
+    <a href="/"> <img itemprop="logo" class="logo" src="/images/animlogo.svg" alt=""></a>
     <nav>
 
         <ul class="nav-links" id="up">
@@ -44,8 +44,11 @@
                     {{/if}}
                     {{#if isAdmin}}
                     <a href="/dashboard">Dashboard</a>
-                      {{/if}}
-                      
+                      {{/if}}    
+                       
+                      {{#if isEditor}}
+                    <a href="/dashboard-editor">Dashboard</a>
+                      {{/if}}                                          
                 </div>
              
             </div>

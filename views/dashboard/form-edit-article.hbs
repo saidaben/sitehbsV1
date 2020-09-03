@@ -4,9 +4,6 @@
     <h3>modifier</h3>
 </hgroup>
 
-
-
-
     <form method="post" action="/article/edit/{{article._id}}" class="form container-inscr" enctype="multipart/form-data">
       
             <label for="titre" class="label"><b>Titre</b></label>
@@ -23,9 +20,23 @@
 <br> --}}
  <textarea class="input" name="contenu"  value="" rows="10">{{article.contenu}}</textarea>
 
+ <label for="categorie" class="label"><b>Categorie</b></label>
+    <select class="input" class="label" id="categorie" class="" name="categorie" required>
+        <option value="-1" disabled selected> {{article.categorie}}</option>
+        <option value="partage d éxpérience">Partage d éxpérience</option>
+        <option value="conseils de professionnel">Conseils de professionnel</option>
+
+    </select
+
 <label for="auteur" class="label"><b>Auteur</b></label >
             <input class="input" id="auteur" type="text" name="auteur" value="{{article.auteur}}">
 
+<label for="redacteurs" class="label"><b>redacteur</b></label>
+      <select class="input" class="label"  id="redacteurs" class="" name="redacteurs" required>
+          
+{{#each redacteurs}}
+<option value="{{this._id}}"> {{this.username}}</option>
+{{/each}}
             {{!-- preview de l'image  --}} 
             <img class="picto-nav" src="{{article.image}}" alt="">
             

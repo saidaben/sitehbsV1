@@ -95,7 +95,7 @@ function filtersorties() {
             li[i].style.display = ""; //il l'affiche alors ds l'input.
 
         } else {
-            li[i].style.display = "none" //sinon il le masque on cache le li
+            li[i].style.display = "none"  //sinon il le masque on cache le li
 
         }
     }
