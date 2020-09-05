@@ -108,7 +108,7 @@ console.log(dbRes)
 
 
 
-//populate, joint user et article :va chercher l'objet entier corresponsant a redacteur
+//Afficher tout les article +populate, joint user et article :va chercher l'objet entier corresponsant a redacteur
 router.get("/articles", (req, res) => {
   articleModel
     .find()
@@ -116,6 +116,36 @@ router.get("/articles", (req, res) => {
     .then((dbRes) => {
       console.log(">>>>", dbRes);
       res.render("articles", {
+        articles: dbRes
+      });
+    })
+    .catch((dbErr) => {
+      console.log(dbErr);
+    });
+});
+
+// afficher les articles du partage dexperiences solo
+router.get("/partagedexperiences", (req, res) => {
+  articleModel
+    .find()
+    .then((dbRes) => {
+      console.log(">>>>", dbRes);
+      res.render("partagedexperiences", {
+        articles: dbRes
+      });
+    })
+    .catch((dbErr) => {
+      console.log(dbErr);
+    });
+});
+
+// afficher les articles de conseils de pro solo
+router.get("/conseilsdepro", (req, res) => {
+  articleModel
+    .find()
+    .then((dbRes) => {
+      console.log(">>>>", dbRes);
+      res.render("conseilsdepro", {
         articles: dbRes
       });
     })

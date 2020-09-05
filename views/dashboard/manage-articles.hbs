@@ -5,6 +5,50 @@
 
 <section class="container-dashboard">
 
+
+
+{{!-- 
+<div class="colonne-titre">
+   TITRE {{#each articles}}
+    <div class="contenu-titre">{{this.titre}}</div>
+{{/each}}
+</div>
+
+
+<div class="colonne-auteur">
+AUTEUR{{#each articles}}
+    <div class="contenu-auteur">{{this.auteur}}</div>
+{{/each}}
+</div>
+
+<div class="colonne-date">
+Date{{#each articles}}
+    <div class="contenu-date">{{this.date}}</div>
+{{/each}}
+</div>
+
+<div class="colonne-image">
+IMAGE{{#each articles}}
+    <div class="contenu-image"><img class="picto-nav" src="{{this.image}}"</div></div>
+{{/each}}
+</div>
+
+
+<div class="colonne-edit">
+EDIT{{#each articles}}
+<div class="contenu-edit">
+<a href="/article/edit/{{this._id}}"><img class="picto-nav" src="/images/edit.svg" alt=""></a></div>
+
+{{/each}}</div> 
+
+
+<div class="colonne-supr">
+DELETE{{#each articles}}
+ <div class="contenu-supr"><form method="post" action="/article/delete/{{this._id}}">
+<button ><img class="picto-nav" src="/images/supr.svg" alt=""></button></div>
+{{/each}}</div>  --}}
+
+{{#each articles}}
 <table class="tabler">
  
         {{!-- thead fix mediac --}}
@@ -12,46 +56,51 @@
       <tr >
         <th class="cell">Titre</th>
         <th class="cell">Date</th>
-        {{!-- <th class="cell">Sous titre</th> --}}
-        {{!-- <th class="cell">Contenu</th> --}}
+        
         <th class="cell">Auteur</th>
         <th class="cell">Image</th>
-        {{!-- <th class="cell">Catégorie</th> --}}
+       
         <th class="cell">Edit</th>
         <th class="cell">Delete</th>
       </tr>
 </thead>
 
      <tbody>
-        {{#unless articles.length}}
+        {{!-- {{#unless articles.length}}
         <tr>
             <td class="cell" colspan="7">
                 pas d'articles enregistrés pour le moment...
             </td>
         </tr>
-        {{/unless}}
-        {{#each articles}}
+        {{/unless}} --}}
+        
         <tr>
             <td class="cell">{{this.titre}}</td>
              <td class="cell">{{this.date}}</td>
-            {{!-- <td class="cell">{{this.sous_titre}}</td> --}}
-            {{!-- <td class="cell ">{{this.contenu}}</td> --}}
+          
              <td class="cell" rows="3">{{this.auteur}} </td>
             <td class="cell"> <img class="picto-nav" src="{{this.image}}" alt=""></td>
-            {{!-- <td class="cell">{{this.categorie}}</td> --}}
+          
             <td class="cell">
-                {{!-- un lien cest tjrs un get!!!!!! --}}
+             
                 <a href="/article/edit/{{this._id}}"><img class="picto-nav" src="/images/edit.svg" alt=""></a>
             </td>
             <td class="cell">
                 <form method="post" action="/article/delete/{{this._id}}">
-                    <button ><img class="picto-nav" src="/images/supr.svg" alt=""></button>
+                    <button ><img id="button-popup-swal" class="picto-nav" src="/images/supr.svg" alt=""></button>
                 </form>
             </td>
         </tr>
-        {{/each}}
+        
     </tbody>
 </table>
-
-
+{{/each}}
 </section>
+
+<script>
+    let btn = document.getElementById('button-popup-swal');
+
+btn.onclick = function () {
+  swal('Attention', è<button>ok</button>, 'warning')
+}
+</script>

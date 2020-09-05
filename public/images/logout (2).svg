@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 30 30" style="enable-background:new 0 0 30 30;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;}
+	.st2{fill:#FFA9D2;}
+	.st3{fill:#FFEB99;}
+	.st4{display:inline;fill:#FFEB99;}
+	.st5{display:inline;fill:#FCFCFA;}
+	.st6{display:inline;fill:#BAE8E7;}
+	.st7{display:inline;fill:#F2C0E5;stroke:#F5FF99;stroke-width:1.0604;stroke-miterlimit:10;}
+	.st8{display:inline;fill:#FDD3BC;}
+	.st9{display:inline;fill:#B97227;}
+	.st10{display:inline;fill:none;stroke:#000000;stroke-width:0.3056;stroke-miterlimit:10;}
+	.st11{fill:#E02847;}
+	.st12{fill:#F993E4;}
+</style>
+<g class="st0">
+	<g>
+		<g class="st1">
+			<rect x="6" y="14" class="st2" width="18" height="14"/>
+		</g>
+		<g class="st1">
+			<polygon class="st3" points="15,0 4,15 26,15 			"/>
+		</g>
+		<polygon class="st4" points="12,21 12,28 16,28 16,21 		"/>
+		<polyline class="st5" points="12.8,21.8 12.8,24.1 15.2,24.1 15.2,21.8 12.8,21.8 		"/>
+		<polyline class="st5" points="12.8,27.2 12.8,24.9 15.2,24.9 15.2,27.2 12.8,27.2 		"/>
+		<rect x="7" y="16" class="st6" width="4" height="4"/>
+		<rect x="18" y="16" class="st6" width="4" height="4"/>
+		<path class="st4" d="M9,16c0,0-1,3-2,2l1,2H7v-4H9z"/>
+		<path class="st4" d="M20,16c0,0-1,3-2,2l1,2h-1v-4H20z"/>
+		<path class="st4" d="M9.1,16c0,0,0.9,3,1.9,2l-1,2h1v-4H9.1z"/>
+		<path class="st4" d="M20.1,16c0,0,0.9,3,1.9,2l-1,2h1v-4H20.1z"/>
+	</g>
+	<ellipse class="st7" cx="15.3" cy="15.1" rx="14.3" ry="14.1"/>
+	<path class="st8" d="M3.7,17.1c0,0-2.6,2.2,0.8,2.8c0,0,3,6.3,7.8,5.7c0,0,12,1.9,13-8.7c0,0,3.4-2.2,0.4-3.3
+		c-2-0.7-0.7-0.8-0.7-0.8s-2-4.7-5.9-4.6c-3.8,0.1-10.7-1.4-12.9,3S3.7,17.1,3.7,17.1z"/>
+	<path class="st9" d="M3.2,18.1c0,0-1.7-2.5-0.3-3.6s-2-4.7,2.5-5.6s-1-3.6,5.3-4.2s4.6-2.4,6.9,0.6s3.8-3.7,5,2.1
+		c1.2,5.7,7.4,2.2,4.7,9c0,0-3.8,1.3-4.2-1.6c0,0-3.1,1.3-3.2-0.7c-0.2-2-1,1.9-4.5,0.1s-5.4,0-5.4-2.3s0.4,2.1-2,2.7s0.2,4-2,3.8
+		S3.2,18.1,3.2,18.1z"/>
+	<path class="st10" d="M9.2,16.9c0,0,1.9,3,3.3,0"/>
+	<path class="st10" d="M16.8,16.9c0,0,1.9,3,3.3,0"/>
+	<g class="st1">
+		<path class="st11" d="M10.6,21.8c0.5,0.5,1,1,1.6,1.4s1.2,0.6,1.9,0.7s1.4,0.1,2-0.2c0.7-0.2,1.3-0.5,1.9-0.9
+			c-0.3,0.2-0.5,0.5-0.8,0.7s-0.6,0.4-1,0.5c-0.7,0.3-1.5,0.4-2.2,0.3c-0.8-0.1-1.5-0.5-2-0.9C11.4,23,10.9,22.4,10.6,21.8z"/>
+	</g>
+</g>
+<g id="Calque_3">
+	<path class="st12" d="M8.9,6.9c0,0-8.8,8.1,1.4,15.7c0,0,6,3.7,11.4-1.2S24.4,8.6,21,6.7l-1.7,1.8c0,0,5.7,5.1,0.5,10.8
+		s-11.5-0.4-11.6-5C8.1,9.7,10.6,9,10.6,9L8.9,6.9z"/>
+	<rect x="13.7" y="4.6" class="st12" width="2.3" height="10.8"/>
+</g>
+</svg>

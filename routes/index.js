@@ -19,6 +19,7 @@ router.get("/art", function (req, res, next){
   res.render('art',{title:'article'});
 });
 
+
 // get sorties
 router.get("/sorties", function (req, res, next){
   res.render('sorties',{title:'trouvez une sortie à Paris'});

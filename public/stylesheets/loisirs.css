@@ -1,6 +1,4 @@
 
-
-
 #input-livre,
 #inputb {
     margin-top: 20px;
@@ -13,8 +11,8 @@
     background-image:url(/images/loupe.png);
      background-repeat: no-repeat; 
      padding-left: 30px;
-    
-
+     border: transparent;
+     border-bottom: 1px solid;
 }
 
 #apropos {

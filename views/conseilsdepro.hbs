@@ -1,0 +1,22 @@
+
+<section class="contain">
+   
+    <hgroup>
+        <h2 id="apropos">Art<span>icles</span>.</h2>
+        <h3> Conseils de professionnel.</h3>
+    </hgroup>
+
+<section class="container-art">
+  {{#each articles}}
+  {{#compare categorie "conseils de professionnel" operator="==="}}
+
+
+  <figure class="blog"><a href="/art"></a> <img itemprop="image" class="artblog" src="{{this.image}}" alt="">
+    <figcaption>
+      <p class="titre-figcaption">{{this.titre}} </p> <br> <a href="/art/{{this._id}}">Accédez à l'article</a>
+    </figcaption>
+  </figure>
+
+  {{/compare}} {{/each}}
+</section>
+</section>

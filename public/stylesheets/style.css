@@ -534,6 +534,7 @@ td {
 
   border-collapse: collapse;
 
+
 }
 
 .role {
@@ -792,7 +793,9 @@ a {
 /* tableau */
      
 table{width: 100%;
-min-width: 320px
+min-width: 320px;
+margin-bottom: 100px;
+
 }
 
   tr{width: 100%;
@@ -864,5 +867,32 @@ li.img-sprite#insta {
   top: 22vh
 }
 
+.colonne-titre{
+  background:red;
+  border:2px solid black
+}
 
+.colonne-auteur{
+  background:rgb(217, 255, 0);
+  border:2px solid black
+}
 
+.colonne-date{
+  background:rgb(17, 0, 255);
+  border:2px solid black
+}
+
+.colonne-image{
+  background:rgb(0, 255, 76);
+  border:2px solid black
+}
+
+.colonne-edit{
+  background:rgb(224, 97, 46);
+  border:2px solid rgb(0, 0, 0)
+}
+
+.colonne-supr{
+  background:rgb(191, 224, 46);
+  border:2px solid rgb(0, 0, 0)
+}

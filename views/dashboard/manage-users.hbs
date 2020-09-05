@@ -5,6 +5,7 @@
   </hgroup>
 
   <section class="container-dashboard">
+     {{#each users}}   
 <table class="tabler">
     <thead>
         <tr >
@@ -17,7 +18,13 @@
         </tr>
     </thead>
     <tbody>
-        {{#each users}}
+      {{!-- {{#unless users.length}}
+        <tr>
+            <td class="cell" colspan="7">
+                pas d'articles enregistrés pour le moment...
+            </td>
+        </tr>
+        {{/unless}} --}}
         <tr >
             <td class="cell avatar">
                  <img class="picto-nav" src="{{this.avatar}}" alt="">
@@ -36,6 +43,9 @@
                 </form>
             </td>
         </tr>
-        {{/each}}
+     
     </tbody>
-</table></section>
+     
+</table>
+  {{/each}}
+</section>
