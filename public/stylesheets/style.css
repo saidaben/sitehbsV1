@@ -579,13 +579,13 @@ li {
 }
 
 .container-legales {
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-bottom: 100px;
+  margin: 70px;
+  padding: 30px;
+
 }
 
-.p-mentions{padding-top: 10px;
-  padding-bottom: 10px;}
+.p-mentions{padding-top: 30px;
+  padding-bottom: 30px;}
 a:hover {
   color: skyblue;
 }
@@ -602,7 +602,7 @@ a {
   height: 400px;
 }
 
-/* cards home */
+/* cards page index home */
 
 
 .wrapper {
@@ -836,7 +836,9 @@ td:last-child,th:last-child{background: rgb(182, 154, 164);}
   align-items: center;
   
 }
-
+.pasdecompte{font-size: 12px;
+color: rgb(158, 158, 248);
+margin-top: 7px;}
 /* sprite */
 
 ul li.img-sprite {
@@ -867,6 +869,7 @@ li.img-sprite#insta {
   top: 22vh
 }
 
+/* dashboard  */
 .colonne-titre{
   background:red;
   border:2px solid black

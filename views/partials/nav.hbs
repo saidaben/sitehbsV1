@@ -1,7 +1,7 @@
 <!-- navigation -->
 <header>
 <section class="menu">
-    <a href="/"> <img itemprop="logo" class="logo" src="/images/animlogo.svg" alt=""></a>
+    <a href="/"> <img itemprop="logo" class="logo" src="/images/animlogo.svg" alt="logo"></a>
     <nav>
 
         <ul class="nav-links" id="up">
@@ -9,7 +9,7 @@
             <li><img itemprop="pictogramme" class="picto-nav" src="/images/home.svg" alt=""><a href="/">Accueil</a></li>
 
             <div class="dropdown">
-                <li class="dropbtn"><img itemprop="pictogramme" class="picto-nav " src="/images/jeuxx.svg" alt=""><a href="#">Loisirs</a></li>
+                <li class="dropbtn"><img itemprop="pictogramme" class="picto-nav " src="/images/jeuxx.svg" alt="loisir"><a href="/sorties">Loisirs</a></li>
 
                 <div class="dropdown-content">
                     <a href="/sorties">Sorties familiales</a>
@@ -20,7 +20,7 @@
             </div>
 
 <div class="dropdown">
-            <li><img itemprop="pictogramme" class="picto-nav" src="/images/blog.svg" alt=""> 
+            <li><img itemprop="pictogramme" class="picto-nav" src="/images/blog.svg" alt="blog"> 
             <a href="/articles">Blog</a></li>
             <div class="dropdown-content">
                 <a href="/conseilsdepro">Conseils de professionnels</a>
@@ -29,9 +29,9 @@
 </div>
             <div class="dropdown">
                 {{#unless isLoggedIn}}
-            <li><img itemprop="pictogramme" class="picto-nav" src="/images/Adm.svg" alt="">
+            <li><img itemprop="pictogramme" class="picto-nav" src="/images/Adm.svg" alt="inscription">
               
-                <a href="/sinscrire">Admin</a></li>
+                <a href="/sinscrire">Inscription</a></li>
                 
                 <div class="dropdown-content">
                     <a href="/sidentifier">sidentifier </a>
@@ -43,7 +43,7 @@
 
                     <div class="dropdown">
 
-                    <li><img itemprop="pictogramme" class="picto-nav" src="/images/profil.svg" alt=""><a href="/profile"> profil</a></li>
+                    <li><img itemprop="pictogramme" class="picto-nav" src="/images/profil.svg" alt="profil"><a href="/profile"> profil</a></li>
 
                     <div class="dropdown-content">
                     {{/if}}
@@ -58,7 +58,7 @@
              
             </div>
              {{#if isLoggedIn}}
-            <li><a href="/deconnexion"><img class="picto-nav" src="/images/logout.svg" alt="">  </a></li>                
+            <li><a href="/deconnexion"><img class="picto-nav" src="/images/logout.svg" alt="deconnexion">  </a></li>                
                    {{/if}}  
         </ul>
     </nav>

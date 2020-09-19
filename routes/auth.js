@@ -63,7 +63,13 @@ router.post("/sidentifier", (req, res, next) => {
       if (checkPassword === false) {
         req.flash("error", "Identifiants incorrects");
         res.redirect("/sidentifier");
+      
       }
+      
+      // else{
+      //   formData.append("username", "Groucho");
+      //   formData.append("accountnum", 123456);
+      // }
       // si oui : stocker les infos de l'user en session pour lui permettre de naviguer jusqu'au signout
       const { _doc: clone } = { ...user }; // je clone l'user
       delete clone.password; // je supprime le mdp du clone (pas besoin de le stocker ailleurs qu'en bdd)

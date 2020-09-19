@@ -7,16 +7,16 @@
     <p class="p-profil">Bienvenue sur ton profil, tu pourras y modifier tes informations personnels ou supprimer ton compte. </p>
 </div> 
 
+
+
 <section class="contain">
  
      <hgroup class="hgroup-profil">
         <h2 id="apropos">Mettre <span>à jour mon profil</span>.</h2>
         <h3> Remplir les champs ci dessous.</h3>
     </hgroup>
+
  
-
-  
-
     <form method="post" action="/profile/edit/infos/{{currentUser._id}}" class="container-inscr" enctype="multipart/form-data">
 
    
@@ -56,7 +56,7 @@
 
  <form method="post" class="container-inscr" action="/users/delete/{{currentUser._id}}"> 
  <p><i>En conformité avec le Règlement général sur la protection des données vous pouvez supprimer votre compte</i> </p>
- <br> <button ><img class="picto-nav" src="/images/supr.svg" alt=""></button>
+ <br> <button ><img class="picto-nav" src="/images/supr.svg" alt="supprimer"></button>
  </form>
 
 
