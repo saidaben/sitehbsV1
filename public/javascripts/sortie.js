@@ -1,11 +1,13 @@
 const URLB = "https://opendata.paris.fr/api/records/1.0/search/?dataset=que-faire-a-paris-&q=&rows=660&facet=category&facet=tags&facet=address_zipcode&facet=address_city&facet=pmr&facet=blind&facet=deaf&facet=access_type&facet=price_type&refine.tags=Enfants";
 const list = document.getElementById("sortie"); //On récupère notre URL, on appel notre ul  list
 const input = document.getElementById("inputb"); //on récupère notre input
+const erreur = document.getElementById("erreur");
 
 function getDatab() {
     axios //on utilise axios
         .get(URLB) //pr recup (get) les donnees localisées a cette url
-        .then((res) => displayb(res.data.records)) //si succes requete:on affiche
+        //.then((res) =>console.log("here")) si succes requete:on affiche
+       .then((res) => displayb(res.data.records)) //si succes requete:on affiche
         .catch((err) => console.error(err)); //sinn on log err ds la consol
 
 }
@@ -30,20 +32,22 @@ function displayb(sorties) { //stations est un tableau d'objet
         h3.textContent = sortie.fields.category;
         //affichage category titre
         h3.style.color = "grey";
-        h3.style.backgroundColor="lavenderblush";
+        h3.style.backgroundColor = "lavenderblush";
         h4.textContent = sortie.fields.title;
         h4.style.color = "#ffa8d2";
         h4.style.margin = "10px 10px 10px 10px";
         pix.innerHTML = `<img itemprop="image" class="imgsortie" src=images/sortie.jpg >`;
         pix.style.margin = "20px 10px 20px 10px";
 
-div.innerHTML = `<figure class="essai"> <img  itemprop="date" class="date teste" src=images/date.png> ${sortie.fields.date_description}</figure>  
+        div.innerHTML = `<figure class="essai"> <img  itemprop="date" class="date teste" src=images/date.png> ${sortie.fields.date_description}</figure>  
 <figure class="essai"> <img  itemprop="price" class="price teste" src=images/price.png>Tarif:  ${sortie.fields.price_type}</figure>   
-<figure class="essai"><img  itemprop="address" class="date teste" src=images/lieux.png> Adresse:${sortie.fields.address_name} <br> ${sortie.fields.address_zipcode} ${sortie.fields.address_city}  </figure>  
- ` ;
-    //     h6.innerHTML = `<img itemprop="date" class="date" src=images/date.png> ${sortie.fields.date_description}  <br> <img itemprop="price" class="price" src=images/price.png> Tarif:  ${sortie.fields.price_type} <br> <img itemprop="address" class="date" src=images/lieux.png> Adresse:
-    // ${sortie.fields.address_name} `;
-    div.style.backgroundColor = "lavenderblush";
+<figure class="essai"><img  itemprop="address" class="date teste" src=images/lieux.png> Adresse:${sortie.fields.address_name} 
+<br> ${sortie.fields.address_zipcode}  ${sortie.fields.address_city}  </figure>  
+ `;
+        //     h6.innerHTML = `<img itemprop="date" class="date" src=images/date.png> ${sortie.fields.date_description}  <br> <img itemprop="price" class="price" src=images/price.png> Tarif:  ${sortie.fields.price_type} <br> <img itemprop="address" class="date" src=images/lieux.png> Adresse:
+        // ${sortie.fields.address_name} `;
+        div.style.backgroundColor = "lavenderblush";
+        div.style.width = "100%";
         h6.style.paddingBottom = "20px";
         h6.style.fontSize = "15px";
 
@@ -62,7 +66,7 @@ div.innerHTML = `<figure class="essai"> <img  itemprop="date" class="date teste"
         li.appendChild(h6);
 
         p.innerHTML = `
-     <br> ${sortie.fields.lead_text} <br> `; //affichage descr
+      ${sortie.fields.lead_text} `; //affichage descr
         p.style.margin = "30px";
         p.style.textAlign = "justify"
         p.style.fontSize = "20px";
@@ -95,13 +99,14 @@ function filtersorties() {
             li[i].style.display = ""; //il l'affiche alors ds l'input.
 
         } else {
-            li[i].style.display = "none"  //sinon il le masque on cache le li
+            li[i].style.display = "none" //sinon il le masque on cache le li
+            erreur.innerHTML = `Oups! aucune sortie trouvés, verifiez l'orthographe.` //et on affiche un message d'erreur
 
         }
     }
 }
 
-input.oninput = filtersorties //on affiche la list qu'on à  filtré précédement dans l'input 
+if (input) input.oninput = filtersorties //on affiche la list qu'on à  filtré précédement dans l'input 
 
 
 

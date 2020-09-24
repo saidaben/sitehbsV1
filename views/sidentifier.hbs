@@ -6,28 +6,29 @@
 
 
 
-  
-
-    <form class="container-inscr" method="post" action="/sidentifier" id="form_user" >
 
 
-        <label for="email" class="label-ref label"><b>Email</b></label>
-        <input id="email" type="email" class="input" placeholder="hello@gmail.com" required
-          value="hello@gmail.com" name="email">
-     
+  <form class="container-inscr" method="post" action="/sidentifier" id="form_user">
 
-     
 
-        <label for="password" class="label-ref label"><b>Mot de passe</b></label>
-        <input id="password" type="password" class="input" placeholder="••••••" required value="1234"
-          name="password"> <span id="icon-toggle" >
-            <i class="is-clickable fas fa-eye"></i>
-        </span>
-      
+    <label for="email" class="label-ref label"><b>Email</b></label>
+    <input id="email" type="email" class="input" placeholder="votreEmail@gmail.com" required 
+      name="email">
 
-      <figure><img itemprop="image" class="boy" src="images/boy.svg" alt="boy"></figure>
-      <button class="button-password">Connexion</button>
-    <p class="pasdecompte">Pas encore de compte?  <a href="sinscrire">Inscription</a></p> </form>
 
-  
+
+
+    <label for="password" class="label-ref label"><b>Mot de passe</b></label>
+    <p id="icon-toggle">
+      <i class="fas fa-eye"></i>
+    </p>
+    <input id="password" type="password" class="input" placeholder="••••••" required name="password">
+
+
+    <figure><img class="boy" src="images/boy.svg" alt="boy"></figure>
+    <button class="button-password">Connexion</button>
+    <p class="pasdecompte">Pas encore de compte? <a href="sinscrire">Inscription</a></p>
+  </form>
+
+
 </section>

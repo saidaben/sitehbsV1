@@ -7,12 +7,12 @@
 
  
 
- <form class="container-inscr" role="form" action="/contact" method="post">
+ <form class="container-inscr" action="/contact" method="post">
 
   
      <label  for="sujet">Sujet</label>
-      <select class="label"  id="sujet" class="input" name="sujet" required>
-        <option value="-1" disabled selected> Choisir un sujet...</option>
+      <select class="label input"  id="sujet" name="sujet" required>
+        <option value="" disabled selected> Choisir un sujet...</option>
         <option value="Demande de partenariat">Demande de partenariat</option>
         <option value="Partage d'experience">Partage d'experience</option>
         <option value="Entrer en contact avec un de nos auteurs">Entrer en contact avec un de nos auteurs</option>
@@ -20,13 +20,13 @@
 
 	  
 	    <label for="email">Email</label>
-	    <input class="input" type="email" name="email"  required placeholder="Email">
+	    <input id="email" class="input" type="email" name="email"  required placeholder="Email">
 
 	  
 
 	    <label  for="message">Message</label>
-	    <textarea name="message" class="input"  required placeholder="Votre message" rows="6"></textarea>
+	    <textarea id="message" name="message" class="input"  required placeholder="Votre message" rows="6"></textarea>
 
-	  <br>
+	 
 	  <button  class="button-contact" type="submit" id="submit" >Envoyer</button>
 	</form></section>

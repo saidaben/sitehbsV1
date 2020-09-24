@@ -19,3 +19,22 @@ const menuBurger = () =>{
     // on rapl on exécute
     menuBurger();
 
+    // afficher mdp
+    const oeil = document.getElementById("icon-toggle");
+
+    if (oeil !== null) {
+        const input = document.getElementById("password");
+        const icon = oeil.querySelector(".fas");
+        oeil.onclick = (e) => {
+            icon.classList.toggle("fa-eye-slash");
+            icon.classList.toggle("fa-eye");
+        
+            if (icon.classList.contains("fa-eye-slash")) {
+                input.type = "text";
+            } else {
+                input.type = "password";
+            }
+        }
+    };
+
+ 

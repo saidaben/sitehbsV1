@@ -1,45 +1,45 @@
 <section class="contain">
-<hgroup>
-    <h2 class="apropos">Editer <span>mon ar</span>ticle</h2>
-    <h3>modifier</h3>
-</hgroup>
+    <hgroup>
+        <h2 class="apropos">Editer <span>mon ar</span>ticle</h2>
+        <h3>modifier</h3>
+    </hgroup>
 
-    <form method="post" action="/article/edit/{{article._id}}" class="form container-inscr" enctype="multipart/form-data">
-      
-            <label for="titre" class="label"><b>Titre</b></label>
-            <input class="input" id="titre" type="text" name="titre" value="{{article.titre}}">
+    <form method="post" action="/article/edit/{{article._id}}" class="form container-inscr"
+        enctype="multipart/form-data">
 
-            <label for="date" class="label"><b>Date</b></label>
-            <input class="input" id="date" type="date" name="date" value="{{article.date}}">
+        <label for="titre" class="label"><b>Titre</b></label>
+        <input class="input" id="titre" type="text" name="titre" value="{{article.titre}}">
 
-            <label for="sous_titre" class="label"><b>Sous titre</b></label>
-            <input class="input" id="sous_titre" type="text" name="sous_titre" value="{{article.sous_titre}}">
+        <label for="date" class="label"><b>Date</b></label>
+        <input class="input" id="date" type="date" name="date" value="{{article.date}}">
 
-            <label for="contenu" class="label"><b>Contenu</b></label >
-            {{!-- <input class="input" id="contenu" type="text" name="contenu" value="{{article.contenu}}" rows="10">
+        <label for="sous_titre" class="label"><b>Sous titre</b></label>
+        <input class="input" id="sous_titre" type="text" name="sous_titre" value="{{article.sous_titre}}">
+
+        <label for="contenu" class="label"><b>Contenu</b></label>
+        {{!-- <input class="input" id="contenu" type="text" name="contenu" value="{{article.contenu}}" rows="10">
 <br> --}}
- <textarea class="input" name="contenu"  value="" rows="10">{{article.contenu}}</textarea>
+        <textarea class="input" name="contenu" value="" rows="10">{{article.contenu}}</textarea>
 
- <label for="categorie" class="label"><b>Categorie</b></label>
-    <select class="input" class="label" id="categorie" class="" name="categorie" required>
-        <option value="-1" disabled selected> {{article.categorie}}</option>
-        <option value="partage d éxpérience">Partage d éxpérience</option>
-        <option value="conseils de professionnel">Conseils de professionnel</option>
+        <label for="categorie" class="label"><b>Categorie</b></label>
+        <select class="input" class="label" id="categorie" class="" name="categorie" required>
+            <option value="-1" disabled selected> {{article.categorie}}</option>
+            <option value="Partage d éxpérience">Partage d éxpérience</option>
+            <option value="Conseils de professionnel">Conseils de professionnel</option>
+            <option value="Les fondamentaux">Les fondamentaux</option>
+             <option value="Brouillons">Brouillons</option>
+        </select <label for="auteur" class="label"><b>Auteur</b></label>
+        <input class="input" id="auteur" type="text" name="auteur" value="{{article.auteur}}">
 
-    </select
+        <label for="redacteurs" class="label"><b>redacteur</b></label>
+        <select class="input" class="label" id="redacteurs" class="" name="redacteurs" required>
 
-<label for="auteur" class="label"><b>Auteur</b></label >
-            <input class="input" id="auteur" type="text" name="auteur" value="{{article.auteur}}">
-
-<label for="redacteurs" class="label"><b>redacteur</b></label>
-      <select class="input" class="label"  id="redacteurs" class="" name="redacteurs" required>
-          
-{{#each redacteurs}}
-<option value="{{this._id}}"> {{this.username}}</option>
-{{/each}}
-            {{!-- preview de l'image  --}} 
+            {{#each redacteurs}}
+            <option value="{{this._id}}"> {{this.username}}</option>
+            {{/each}}
+            {{!-- preview de l'image  --}}
             <img class="picto-nav" src="{{article.image}}" alt="">
-            
+
             <label for="image" class="label"><b>Image</b></label>
             <input class="input" id="image" type="file" name="image" value="{{article.image}}">
 
@@ -47,5 +47,5 @@
             <button class="button-poster">Poster</button>
     </form>
 
-  
+
 </section>

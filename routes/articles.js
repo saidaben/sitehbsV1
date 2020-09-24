@@ -99,6 +99,7 @@ console.log(dbRes)
   .catch(dbErr =>{
     console.log(dbErr)
   })
+  req.flash("success", "l'Article à bien été crée.");
   //si t'es admin redirige vers le dashboard sinn vers le dashboard editor
   if (req.session.currentUser && req.session.currentUser.role === "admin")
   res.redirect("/dashboard");
@@ -154,8 +155,35 @@ router.get("/conseilsdepro", (req, res) => {
     });
 });
 
+// afficher les articles fondamentaux solo
+router.get("/fondamentaux", (req, res) => {
+  articleModel
+    .find()
+    .then((dbRes) => {
+      console.log(">>>>", dbRes);
+      res.render("fondamentaux", {
+        articles: dbRes
+      });
+    })
+    .catch((dbErr) => {
+      console.log(dbErr);
+    });
+});
 
-
+// afficher les articles hors lign en brouillon
+router.get("/brouillon", (req, res) => {
+  articleModel
+    .find()
+    .then((dbRes) => {
+      console.log(">>>>", dbRes);
+      res.render("brouillon", {
+        articles: dbRes
+      });
+    })
+    .catch((dbErr) => {
+      console.log(dbErr);
+    });
+});
 // test afficher un  seul article************************************+populate pour recup le redacteur de la table user join ds article
 
 router.get("/art/:id", async (req, res, next) => {
@@ -208,12 +236,34 @@ router.get("/article/edit/:id", protectAdminRoute, (req, res) => {
     .catch(dbErr => console.error(dbErr))
 });
 
-router.post("/article/edit/:id", protectAdminRoute, uploader.single("image"), (req, res) => {
-  articleModel.findByIdAndUpdate(req.params.id, req.body)
-    .then(dbRes =>
-      res.redirect("/dashboard/manage-articles"))
-    .catch(dbErr => console.error(dbErr))
+// router.post("/article/edit/:id", protectAdminRoute, uploader.single("image"), (req, res) => {
+//   articleModel
+//   .findByIdAndUpdate(req.params.id, req.body)
+//     .then(dbRes =>
+      
+//     res.redirect("/dashboard/manage-articles"))
+    
+//     .catch(dbErr => console.error(dbErr))
 
+// });
+
+router.post("/article/edit/:id", protectAdminRoute, 
+uploader.single("image"), 
+(req, res, next) => {
+  const updatedArticle = req.body;
+// si on a une image pr la passer en secur url pr cloudinary
+  if (req.file) updatedArticle.image = req.file.secure_url;
+  articleModel
+    .findByIdAndUpdate(req.params.id, updatedArticle)
+    .then((updatedArticle) => {
+      console.log("maj >>> ", updatedArticle);
+      req.flash("success", "l'Article à bien été modifiée.");
+ 
+      res.redirect("/dashboard/manage-articles");
+    
+    })
+    .catch(next);
 });
 
 module.exports = router;
+

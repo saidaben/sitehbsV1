@@ -1,7 +1,7 @@
 
   <hgroup>
     <h2 id="apropos">Modifier<span> un des utilisa</span>teurs.</h2>
-    <h3> <span title="{{user._id}}">{{user.username}}</span></h3>
+   <h3>Il y a : {{users.length}} utilisateurs inscrit.</h3>
   </hgroup>
 
   <section class="container-dashboard">
@@ -35,12 +35,9 @@
             <td class="cell">
                 <a href="/users/edit/{{this._id}}"><img class="picto-nav" src="/images/edit.svg" alt=""></a>
             </td>
+
             <td class="cell">
-                <form method="post" action="/users/delete/{{this._id}}">
-                    <button >
-                      <img class="picto-nav" src="/images/supr.svg" alt="">
-                    </button>
-                </form>
+                <a href="/users/edit/{{this._id}}"><img  class="picto-nav" src="/images/supr.svg" alt=""></a>
             </td>
         </tr>
      
@@ -49,3 +46,4 @@
 </table>
   {{/each}}
 </section>
+

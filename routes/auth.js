@@ -105,7 +105,7 @@ console.log("....",user)
       .findOne({ email: user.email })
       .then((dbRes) => {
         if (dbRes) {
-          // todo retourner message d'erreur : email déjà pris + redirect
+          //  retourne message d'erreur : email déjà pris + redirect
           req.flash("warning", "Désolé, cet email n'est pas disponible.");
           res.redirect("/sinscrire");
         }

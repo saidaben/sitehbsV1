@@ -9,50 +9,68 @@ const mail_user_name = "ce790ede60f497";
 const mail_user_pass = "da89864210cda2";
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'home' });
+router.get('/', function (req, res, next) {
+  res.render('index', {
+    title: 'home'
+  });
 });
 
 
 
 // get blog
-router.get("/blog", function (req, res, next){
-  res.render('blog',{title:'Mon blog'});
+router.get("/blog", function (req, res, next) {
+  res.render('blog', {
+    title: 'Mon blog'
+  });
 });
 
 //get article
-router.get("/art", function (req, res, next){
-  res.render('art',{title:'article'});
+router.get("/art", function (req, res, next) {
+  res.render('art', {
+    title: 'article'
+  });
 });
 
 
 // get sorties
-router.get("/sorties", function (req, res, next){
-  res.render('sorties',{title:'trouvez une sortie à Paris'});
+router.get("/sorties", function (req, res, next) {
+  res.render('sorties', {
+    title: 'trouvez une sortie à Paris',
+    js: ["sortie"]
+  });
 });
 
 // get livre
-router.get("/livres", function (req, res, next){
-  res.render('livres',{title:'trouvez un livre '});
+router.get("/livres", function (req, res, next) {
+  res.render('livres', {
+    title: 'trouvez un livre',
+    js: ["livre"]
+  });
 });
 
 
 // get contact
-router.get("/contact", function (req, res, next){
-  res.render('contact',{title:'formulaire de contact'});
+router.get("/contact", function (req, res, next) {
+  res.render('contact', {
+    title: 'formulaire de contact'
+  });
 });
 
 //get mentions legales
-router.get("/mentionslegales", function (req, res, next){
-  res.render('mentionslegales',{title:'Mentions Legales'});
+router.get("/mentionslegales", function (req, res, next) {
+  res.render('mentionslegales', {
+    title: 'Mentions Legales'
+  });
 });
+
+
 
 //testtt form contact
 
 // router.post('/contact', function(req, res, next){
 //   mailer.extend(app, {
 //     from: req.body.email,
-    
+
 
 //     host: 'smtp.mailtrap.io',
 //     secureConnection: false,
@@ -61,7 +79,7 @@ router.get("/mentionslegales", function (req, res, next){
 //   });
 
 //  app.mailer.send('email', {
-  
+
 //     to: 'benadour.saida@gmail.com',
 //     subject: req.body.sujet,
 //     message: req.body.message
@@ -104,7 +122,7 @@ router.post("/contact", async (req, res, next) => {
     .then(() => {
       console.log("mail: ");
       req.flash("success", "Votre message nous à été envoyé. Il sera traité rapidement .");
-      res.redirect("/contact");;
+      res.redirect("/contact");
     })
     .catch((err) => {
       console.error("erreur:", err);

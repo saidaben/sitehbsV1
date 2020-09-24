@@ -2,18 +2,19 @@
 <section class="contain">
    
     <hgroup>
-        <h2 id="apropos">Art<span>icles</span>.</h2>
-        <h3> Conseils de professionnel.</h3>
+        <h2 id="apropos">Broui<span>llons</span>.</h2>
+        <h3> Ces articles ne sont pas encore en ligne pour le public.</h3>
     </hgroup>
 
 <section class="container-art">
+  
   {{#each articles}}
-  {{#compare categorie "Conseils de professionnel" operator="==="}}
+  {{#compare categorie "Brouillons" operator="==="}}
 
 
   <figure class="blog"><a href="/art"></a> <img  class="artblog" src="{{this.image}}" alt="image enfance">
     <figcaption>
-      <p class="titre-figcaption">{{this.titre}} </p>  <a href="/art/{{this._id}}">>Accédez à l'article</a>
+      <p class="titre-figcaption">{{this.titre}} </p> <a href="/art/{{this._id}}">>Accédez à l'article</a>
     </figcaption>
   </figure>
 

@@ -6,11 +6,16 @@
     </hgroup>
 
     <section class="container-art">
-
+ {{#unless articles.length}}
+        
+            
+               <p >Nous sommes désolé il n'y à pas d'articles pour le moment...</p> 
+         
+        {{/unless}}
         {{#each articles}}
 
-        <figure class="blog"><a href="/art"></a> <img itemprop="image" class="artblog" src="{{this.image}}" alt="image enfance">
-            <figcaption> <p class="titre-figcaption">{{this.titre}} </p> <br> <a href="/art/{{this._id}}">> Accédez à l'article</a></figcaption>
+       <a href="/art/{{this._id}}"> <figure class="blog"> <img  class="artblog" src="{{this.image}}" alt="image enfance"></a>
+            <figcaption> <p class="titre-figcaption">{{this.titre}} </p>  <a href="/art/{{this._id}}">> Accédez à l'article</a></figcaption>
         </figure>
 
 

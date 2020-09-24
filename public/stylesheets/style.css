@@ -78,6 +78,7 @@ h1 {
 
 h3 {
   color: plum;
+  margin-bottom: 20px;
 }
 
 /* animation boy */
@@ -188,7 +189,7 @@ h3 {
   align-items: center;
   flex-wrap: wrap;
   background: white;
-  padding-top: 40px;
+  padding-top: 10px;
 
   padding-bottom: 30px;
   margin-bottom: 100px;
@@ -360,7 +361,8 @@ img.picto-nav {
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 100px;
-  min-width: 440px;
+  /* min-width: 440px; */
+  max-width: 100%;
   height: 239px;
 
 }
@@ -388,10 +390,11 @@ img.picto-nav {
   position: relative;
   cursor: pointer;
   /* ombrage photos */
-  margin: 5px;
+  margin: 43px 43px;
   border: 1px solid lavenderblush;
-  box-shadow: 1px 2px 10px lavenderblush;
+  box-shadow: 10px 2px 14px lavenderblush;
   background-color: white;
+  border-radius:13px
 }
 
 .deuxieme {
@@ -899,3 +902,70 @@ li.img-sprite#insta {
   background:rgb(191, 224, 46);
   border:2px solid rgb(0, 0, 0)
 }
+
+/* oeil mdp */
+.fa-eye:before{color: rgb(158, 158, 248)}
+
+.fa-eye-slash:before{color: plum;}
+
+/* modal supr user */
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+flex-direction: column-reverse;
+}
+
+#modal:not(:target) {
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s, visibility .5s
+}
+
+a.fermer {
+  font-size: 20px;
+  color: plum;
+  text-decoration: none;
+}
+
+a.fermer::after {
+  font-family: "Font Awesome 5 Brands";
+  content: "\f004";
+  font-size: 20px;
+  color: plum;
+  position: absolute;
+  top: 10px;
+  right: 20px
+}
+
+.close{margin:10px;
+  color:rgb(172, 172, 202);
+  font-size: 25px;
+  text-align: center;}
+
+
+  .p-supr{margin:10px;
+  text-align: center;}
+
+  .p-info-user{color:rgb(172, 172, 202);
+    margin:10px;
+    text-align: center;}
+    .veo{color: white}
+
+    .a-dashboard{    margin: 20px;
+      border: 1px solid BLACK;
+      background: gainsboro;
+      width: 151px;
+      height: 39px;
+      box-shadow: inset 0 2px 5px 0 rgba(0, 0, 0, .11);
+      line-height: 34px;
+      border-radius: 8px;
+      text-align: center;
+  }

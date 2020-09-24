@@ -9,40 +9,37 @@
 
 
     <label for="titre" class="label"><b>Titre</b></label>
-    <input class="input" id="titre" type="text" name="titre" class="label">
+    <input class="input label" id="titre" type="text" name="titre" >
 
 
     <label for="date" class="label"><b>Date</b></label>
-    <input class="input" id="date" type="date" name="date" class="label">
+    <input class="input label" id="date" type="date" name="date" >
 
-    <label for="sous_titre" class="is-clickable"><b>Sous titre</b></label>
+    <label for="sous_titre" ><b>Sous titre</b></label>
     <input class="input" id="sous_titre" type="text" name="sous_titre">
 
-    <label for="contenu" class="is-clickable"><b>Contenu</b></label>
-    {{!-- <input class="label" id="contenu" type="text" name="contenu" ><br> --}}
+    <label for="contenu" ><b>Contenu</b></label>
 
-    <textarea class="input" name="contenu" required placeholder="Votre message" rows="10"></textarea>
+    <textarea class="input" name="contenu" id="contenu" required placeholder="Votre message" rows="10"></textarea>
 
     <label for="auteur" class="label"><b>Auteur</b></label>
     <input class="input" id="auteur" type="text" name="auteur" value="{{article.auteur}}">
-    {{!-- {{#each users}}
-    <label for="auteur" class="label">admin</label>
-        <input id="auteur" name="username" value="{{users.username}}" type="radio" >
-{{/each}} --}}
+  
     <label for="redacteurs" class="label"><b>redacteur</b></label>
-    <select class="input" class="label" id="redacteurs" class="" name="redacteurs" required>
-        <option value="-1" disabled selected> Choisir un rédacteur...</option>
+    <select class="input label" id="redacteurs" name="redacteurs" required>
+        <option value="" disabled selected> Choisir un rédacteur...</option>
         {{#each redacteurs}}
         <option value="{{this._id}}"> {{this.username}}</option>
 
         {{/each}}
     </select>
     <label for="categorie" class="label"><b>Categorie</b></label>
-    <select class="input" class="label" id="categorie" class="" name="categorie" required>
-        <option value="-1" disabled selected> Choisir une categorie...</option>
-        <option value="partage d éxpérience">Partage d éxpérience</option>
-        <option value="conseils de professionnel">Conseils de professionnel</option>
-
+    <select class="input label"  id="categorie"  name="categorie" required>
+        <option value="" disabled selected> Choisir une categorie...</option>
+        <option value="Partage d éxpérience">Partage d éxpérience</option>
+        <option value="Conseils de professionnel">Conseils de professionnel</option>
+        <option value="Les fondamentaux">Les fondamentaux</option>
+        <option value="Brouillons">Brouillons</option>
     </select><br>
 
 
@@ -54,4 +51,3 @@
     <button class="button-poster">Poster</button>
 </form>
 
-</section>

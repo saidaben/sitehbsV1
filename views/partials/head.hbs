@@ -7,26 +7,23 @@
   <meta name="auteur" content="Saida Benadour 2020">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rise Child up!</title>
-
-
-
-
   {{!-- liens css --}}
-
   <link rel="stylesheet" href="/stylesheets/menu.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
-  <link rel="stylesheet" href="stylesheets/loisirs.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" href="/stylesheets/loisirs.css">
   {{!-- font --}}
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital@1&display=swap" rel="stylesheet">
-
+  {{!-- oeil mdp--}}
+  <script src="https://kit.fontawesome.com/e25b852c87.js" crossorigin="anonymous"></script>
   {{!-- script js --}}
-  <script type="module" src="javascripts/menu.js"></script>
+  {{!-- alerte perso --}}
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script type="module" src="/javascripts/menu.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script type="module" src="javascripts/livre.js"></script>
+  {{#each js}}
+  <script type="module" src="/javascripts/{{this}}.js"></script>
+  {{/each}}
 
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script type="module" src="javascripts/sortie.js"></script>
-  <script type="module" src="javascripts/toggle-password-icon"></script>
+
 </head>

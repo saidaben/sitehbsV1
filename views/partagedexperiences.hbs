@@ -7,15 +7,15 @@
 
 <section class="container-art">
 
-    {{#each articles}} {{#compare categorie "partage d éxpérience" operator="==="}}
+    {{#each articles}} {{#compare categorie "Partage d éxpérience" operator="==="}}
 
-
-    <figure class="blog"><a href="/art"></a> <img itemprop="image" class="artblog" src="{{this.image}}" alt="image enfance">
+    <figure class="blog"><a href="/art"></a> <img  class="artblog" src="{{this.image}}" alt="image enfance">
         <figcaption>
-            <p class="titre-figcaption">{{this.titre}} </p> <br> <a href="/art/{{this._id}}">Accédez à l'article</a>
+            <p class="titre-figcaption">{{this.titre}} </p>  <a href="/art/{{this._id}}">>Accédez à l'article</a>
         </figcaption>
     </figure>
 
     {{/compare}} {{/each}}
+    
 </section>
 </section>

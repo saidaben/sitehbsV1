@@ -16,6 +16,8 @@ router.get("/profile", protectRoute, (req, res) => {
   );
 });
 
+
+
 router.get("/dashboard/manage-users",protectAdminRoute, (req, res, next) => {
   
   // lire tous les users en db, puis render dans une vue avec une table qui liste tous les users
@@ -57,8 +59,7 @@ router.post(
       !updatedUserInfos.username ||
       !updatedUserInfos.email
     ) {
-      // todo => return message erreur
-    }
+      req.flash("warning", "veuillez remplir les champs.");    }
 
     if (req.file) updatedUserInfos.avatar = req.file.secure_url;
     // check la doc : https://mongoosejs.com/docs/api.html#model_Model.findByIdAndUpdate
@@ -66,25 +67,26 @@ router.post(
       .findByIdAndUpdate(req.params.id, updatedUserInfos, { new: true }) // attention à l'option new: true
       .then((updatedUser) => {
         req.session.currentUser = updatedUser;
+        req.flash("success", "Profil mis à jours.");
         res.redirect("/profile");
       })
       .catch(next);
   }
 );
 
+// problème!!!!!!!!!!!!!!!!!!!
 router.post("/profile/edit/password/:id",protectRoute, (req, res, next) => {
-  const updatedUserInfos = req.body; // on stocke les infos postées dans cette constante
+  const updatedUserInfos = req.body; //  infos postées ici
   if (
     // on vérifie la présence de tous les champs requis
     !updatedUserInfos.oldPassword ||
     !updatedUserInfos.password
   ) {
-    // todo => return message erreur
-  }
-  userModel // on cherche l'user par son id
-    .findById(req.params.id) // pour pouvoir comparer l'ancien pot de passe
+    req.flash("warning", "Veuillez remplir tous les champs.");  }
+  userModel // re recup l'user par son id 
+    .findById(req.params.id) // pour pouvoir comparer l'ancien mot de passe
     .then((user) => {
-      // si la promesse est tenue, on vérifie que oldPassword est correct
+      //   vérifie que oldPassword est correct on compare avc compareSnc le mdp en bdd hashé et l'autre plein 
       const checkOldPassword = bcrypt.compareSync(
         updatedUserInfos.oldPassword, // password provenant du form "texte plein"
         user.password // password stocké en bdd (encrypté)
@@ -92,14 +94,16 @@ router.post("/profile/edit/password/:id",protectRoute, (req, res, next) => {
 
       if (checkOldPassword === false) {
         // si le oldPassword renseigné n'est pas le bon
-        // todo => return message erreur
+        req.flash("warning", "Mots de passe erroné.");
       } else {
-        // si oldPassword renseigné est correct
+        // sinn correct donc 
         const salt = bcrypt.genSaltSync(10); // on génère un sel pour renforcer le hashage
-        const hashed = bcrypt.hashSync(updatedUserInfos.password, salt); // encrypte nouveau password
+        const hashed = bcrypt.hashSync(updatedUserInfos.password, salt); // on encrypte le new mdp
 
-        user.password = hashed; // on remplace le mot de passe "en clair" par le hash
+        user.password = hashed; //  remplace le mdp plein par le hash
         user.save(); // et enfin on update le document user récupéré de la bdd avec les nouvelles infos
+        req.flash("success", "mot de passe mis à jours.");
+        //enfin on redirige
         res.redirect("/profile");
       }
     })
@@ -113,6 +117,7 @@ router.post("/users/edit/:id",protectAdminRoute, (req, res, next) => {
     .findByIdAndUpdate(req.params.id, req.body)
     .then(dbRes => {
       console.log("edit one user >>>> ", dbRes);
+      req.flash("success", "Le role de l'utilisateur à été mis à jour.");
       res.redirect("/dashboard/manage-users");
     })
     .catch(next);
@@ -131,6 +136,10 @@ router.post("/users/delete/:id", (req, res, next) => {
     .findByIdAndDelete(req.params.id)
     .then((dbRes) => {
       //console.log("delete one users >>> ", dbRes);
+      req.flash("success", "Profil supprimé.");
+      if (req.session.currentUser && req.session.currentUser.role === "admin")
+      res.redirect("/dashboard");
+      else       
       res.redirect("/deconnexion");
     })
     .catch(next);

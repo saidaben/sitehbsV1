@@ -1,15 +1,15 @@
 <!-- navigation -->
 <header>
 <section class="menu">
-    <a href="/"> <img itemprop="logo" class="logo" src="/images/animlogo.svg" alt="logo"></a>
-    <nav>
+    <a href="/"> <img  class="logo" src="/images/animlogo.svg" alt="logo"></a>
+    {{!-- <nav>
 
         <ul class="nav-links" id="up">
 
-            <li><img itemprop="pictogramme" class="picto-nav" src="/images/home.svg" alt=""><a href="/">Accueil</a></li>
+            <li><img  class="picto-nav" src="/images/home.svg" alt=""><a href="/">Accueil</a></li>
 
             <div class="dropdown">
-                <li class="dropbtn"><img itemprop="pictogramme" class="picto-nav " src="/images/jeuxx.svg" alt="loisir"><a href="/sorties">Loisirs</a></li>
+                <li class="dropbtn"><img  class="picto-nav " src="/images/jeuxx.svg" alt="loisir"><a href="/sorties">Loisirs</a></li>
 
                 <div class="dropdown-content">
                     <a href="/sorties">Sorties familiales</a>
@@ -20,16 +20,23 @@
             </div>
 
 <div class="dropdown">
-            <li><img itemprop="pictogramme" class="picto-nav" src="/images/blog.svg" alt="blog"> 
+            <li><img  class="picto-nav" src="/images/blog.svg" alt="blog"> 
             <a href="/articles">Blog</a></li>
             <div class="dropdown-content">
+                <a href="/fondamentaux"> Les fondamentaux</a>
                 <a href="/conseilsdepro">Conseils de professionnels</a>
                     <a href="/partagedexperiences"> Partage d'expériences</a>
+                    {{#if isAdmin }} 
+                    <a href="/brouillon"> Brouillons</a>
+                     {{/if}}  
+                     {{#if isEditor}}
+                     <a href="/brouillon"> Brouillons</a>
+                      {{/if}} 
             </div>
 </div>
             <div class="dropdown">
                 {{#unless isLoggedIn}}
-            <li><img itemprop="pictogramme" class="picto-nav" src="/images/Adm.svg" alt="inscription">
+            <li><img  class="picto-nav" src="/images/Adm.svg" alt="inscription">
               
                 <a href="/sinscrire">Inscription</a></li>
                 
@@ -43,7 +50,7 @@
 
                     <div class="dropdown">
 
-                    <li><img itemprop="pictogramme" class="picto-nav" src="/images/profil.svg" alt="profil"><a href="/profile"> profil</a></li>
+                    <li><img  class="picto-nav" src="/images/profil.svg" alt="profil"><a href="/profile"> profil</a></li>
 
                     <div class="dropdown-content">
                     {{/if}}
@@ -61,11 +68,72 @@
             <li><a href="/deconnexion"><img class="picto-nav" src="/images/logout.svg" alt="deconnexion">  </a></li>                
                    {{/if}}  
         </ul>
-    </nav>
+    </nav> --}}
+<nav>
 
+  <div class="navbar nav-links" id="up">
+  <a class="dropbtn" href="/"> <img  class="picto-nav" src="/images/home.svg" alt="home">Accueil</a>
+  
+  <div class="dropdown">
+    <button class="dropbtn"> <img  class="picto-nav " src="/images/jeuxx.svg" alt="loisir">Loisirs 
+    <i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-content">
+      <a href="/sorties">Sorties Familiales</a>
+      <a href="/livres">Coin Lecture</a>
+    </div>
+  </div> 
+
+  <div class="dropdown">
+     <a class="dropbtn" href="/articles"><img  class="picto-nav" src="/images/blog.svg" alt="blog">Blog</a> 
+    
+    <div class="dropdown-content">
+    <a href="/fondamentaux">Les fondamentaux</a>
+      <a href="/partagedexperiences">Partage d'Expériences</a>
+      <a href="/conseilsdepro">Conseils de Professionnels</a>
+      {{#if isAdmin }} 
+      <a href="/brouillon">Brouillons</a>
+     {{/if}}
+
+      {{#if isEditor }} 
+      <a href="/brouillon">Brouillons</a>
+     {{/if}}
+    </div>
+  </div> 
+
+  <div class="dropdown">
+      {{#unless isLoggedIn}}
+    <a href="/sinscrire" class="dropbtn"> <img  class="picto-nav" src="/images/Adm.svg" alt="inscription">Inscription </a>
+
+    <div class="dropdown-content">
+      <a href="/sidentifier">S'identifier</a>
+      {{/unless}}
+    </div>
+  </div> 
+
+  <div class="dropdown">
+      {{#if isLoggedIn}}
+    <a class="dropbtn" href="/profile"> <img  class="picto-nav" src="/images/profil.svg" alt="profil">Profil 
+    </a>{{/if}}
+     {{#if isAdmin}}
+    <div class="dropdown-content">
+        
+      <a href="/dashboard">Dashboard</a>
+      {{/if}}
+      {{#if isEditor}}
+     <a href="/dashboard-editor">Dashboard</a>
+      {{/if}}
+    </div>
+     
+  </div> 
+
+{{#if isLoggedIn}}
+<a href="/deconnexion"> <img  class="picto-nav" src="/images/logout.svg" alt="deconnexion"></a>
+{{/if}}
+</div>
+</nav>
 
 </section>
 
-<div class="burger"> <img itemprop="pictogramme" class="spanburger" src="/images/nav.png" alt=""></div>
+<div class="burger"> <img  class="spanburger" src="/images/nav.png" alt="menu"></div>
 
   </header>

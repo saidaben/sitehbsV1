@@ -8,13 +8,14 @@
         </hgroup>
 
         <div class="container">
-            <figure class="blog"><img itemprop="image" class="artblog" src="{{article.image}}" alt="image enfance">
-                <figcaption> <span itemprop="name" class="date"> <b>{{article.categorie}} de :</b>  {{article.auteur}} <b></span></figcaption>
+            
+            <figure class="blog"><img  class="artblog" src="{{article.image}}" alt="image enfance">
+                <figcaption> <span> {{article.categorie}}</span> de :  {{article.auteur}} </figcaption>
             </figure>
 
            <div class="para"> <p class="ptexte" id="ptexte">{{article.contenu}}
                 </p>
-                <p itemprop="name" class="pauteur"> <br> Edité par: </b>{{article.redacteurs.username}} </p>
+                <p  class="pauteur">  Edité par: {{article.redacteurs.username}} </p>
             </div>
         </div>
 

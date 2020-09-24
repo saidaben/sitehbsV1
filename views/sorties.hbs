@@ -1,22 +1,21 @@
 <section class="api-sortie">
     <hgroup>
         <h2 id="apropos"><span>Je recherche </span>une sortie.</h2>
-        <h3> Renseigner le champs ci dessous pour trouvez une activitée à faire en famille en région parisienne (Spéctacle,
-            exposition, théatre, animation), ou bien explorez toutes les catégories en scrollant directement vers le bas pour trouvez une sortie.</h3>
+        <h3> Vous etes souvent à cours d'activitée à faire? 
+            Renseigner le champs ci dessous pour trouvez une activitée à faire en famille pour petits et grand et pour tous les budgets en région parisienne .</h3>
     </hgroup>
 
-    <input class="tri" type="radio" value="type" name="tri" checked >
+    {{!-- <input class="tri" type="radio" value="type" name="tri" checked >
         <label for="tri">Gratuit</label>
 
         <input class="tri" type="radio" value="type" name="tri" checked>
         <label for="tri">Payant</label> 
         <br>
          <input class="triAdresse" type="radio" value="adresse" name="tri" checked>
-        <label for="tri">Code postal</label>
+        <label for="tri">Code postal</label> --}}
         
 
     <input id="inputb" type="text" placeholder="         chercher une sortie...">
     
-    <ul id="sortie"></ul> <p class="erreur">Oups! aucune sortie trouvés, verifiez l'orthographe.</p>
+    <ul id="sortie"></ul> <p class="erreur" id="erreur"></p>
 </section>
-<a href="#up"> <img itemprop="image" class="up" src="images/up.png" alt="monter"></a>
