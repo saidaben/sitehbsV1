@@ -74,7 +74,6 @@ router.post(
   }
 );
 
-// problème!!!!!!!!!!!!!!!!!!!
 router.post("/profile/edit/password/:id",protectRoute, (req, res, next) => {
   const updatedUserInfos = req.body; //  infos postées ici
   if (

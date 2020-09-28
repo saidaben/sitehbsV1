@@ -22,11 +22,11 @@ const userSchema = new Schema({
     type: String,
   },
  
-      //    favoris: {
-      //     type: Schema.Types.ObjectId,
-      //     ref: "Article"
-      //     //REF POINTE SUR UNE AUTRECOLLECTION
-      // },
+         favoris: {
+          type: Schema.Types.ObjectId,
+          ref: "Article"
+          //REF POINTE SUR UNE AUTRECOLLECTION
+      },
   
   role: {
     type: String,

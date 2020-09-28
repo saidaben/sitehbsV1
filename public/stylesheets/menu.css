@@ -12,7 +12,8 @@
     color: plum;
     font-size: 16px;
     border: none;
-    width: 128px;  }
+    width: 128px; 
+     }
   
   .dropdown {
     position: relative;
@@ -218,15 +219,5 @@ height: 40px;}
 
 @media screen and (min-device-width: 320px) {
 
-.artblog {
-    border: 5px solid white;
-    margin: 5px;
-    box-shadow: 1px 2px 10px lavenderblush;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-bottom: 100px;
-    max-width: 100%;
-    /* height: 239px; */
-}
+
 body{background: yellow;}}

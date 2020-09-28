@@ -90,38 +90,38 @@
     <a href="/fondamentaux">Les fondamentaux</a>
       <a href="/partagedexperiences">Partage d'Expériences</a>
       <a href="/conseilsdepro">Conseils de Professionnels</a>
-      {{#if isAdmin }} 
+       {{#if isAdmin }} 
       <a href="/brouillon">Brouillons</a>
-     {{/if}}
-
-      {{#if isEditor }} 
+   {{/if}}
+   {{#if isEditor}} 
       <a href="/brouillon">Brouillons</a>
-     {{/if}}
+   {{/if}}
     </div>
   </div> 
-
+{{#unless isLoggedIn}}
   <div class="dropdown">
-      {{#unless isLoggedIn}}
+     
     <a href="/sinscrire" class="dropbtn"> <img  class="picto-nav" src="/images/Adm.svg" alt="inscription">Inscription </a>
 
     <div class="dropdown-content">
       <a href="/sidentifier">S'identifier</a>
-      {{/unless}}
+      
     </div>
   </div> 
-
+{{/unless}}
+{{#if isLoggedIn}}
   <div class="dropdown">
-      {{#if isLoggedIn}}
+      
     <a class="dropbtn" href="/profile"> <img  class="picto-nav" src="/images/profil.svg" alt="profil">Profil 
-    </a>{{/if}}
-     {{#if isAdmin}}
+    </a> {{/if}}
+     
     <div class="dropdown-content">
-        
+        {{#if isAdmin }} 
       <a href="/dashboard">Dashboard</a>
       {{/if}}
-      {{#if isEditor}}
+      {{#if isEditor}} 
      <a href="/dashboard-editor">Dashboard</a>
-      {{/if}}
+    {{/if}}
     </div>
      
   </div> 
