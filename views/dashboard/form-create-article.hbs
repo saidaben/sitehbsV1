@@ -9,32 +9,33 @@
 
 
     <label for="titre" class="label"><b>Titre</b></label>
-    <input class="input label" id="titre" type="text" name="titre" >
+    <input class="input label" id="titre" type="text" name="titre">
 
 
     <label for="date" class="label"><b>Date</b></label>
-    <input class="input label" id="date" type="date" name="date" >
+    <input class="input label" id="date" type="date" name="date">
 
-    <label for="sous_titre" ><b>Sous titre</b></label>
+    <label for="sous_titre"><b>Sous titre</b></label>
     <input class="input" id="sous_titre" type="text" name="sous_titre">
 
-    <label for="contenu" ><b>Contenu</b></label>
+    <label for="contenu"><b>Contenu</b></label>
 
     <textarea class="input" name="contenu" id="contenu" required placeholder="Votre message" rows="10"></textarea>
 
     <label for="auteur" class="label"><b>Auteur</b></label>
     <input class="input" id="auteur" type="text" name="auteur" value="{{article.auteur}}">
-  
+
     <label for="redacteurs" class="label"><b>redacteur</b></label>
     <select class="input label" id="redacteurs" name="redacteurs" required>
         <option value="" disabled selected> Choisir un rédacteur...</option>
+       
         {{#each redacteurs}}
         <option value="{{this._id}}"> {{this.username}}</option>
-
         {{/each}}
+        
     </select>
     <label for="categorie" class="label"><b>Categorie</b></label>
-    <select class="input label"  id="categorie"  name="categorie" required>
+    <select class="input label" id="categorie" name="categorie" required>
         <option value="" disabled selected> Choisir une categorie...</option>
         <option value="Partage d éxpérience">Partage d éxpérience</option>
         <option value="Conseils de professionnel">Conseils de professionnel</option>
@@ -50,4 +51,3 @@
     <br>
     <button class="button-poster">Poster</button>
 </form>
-

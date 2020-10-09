@@ -3,23 +3,31 @@ const router = new express.Router();
 const userModel = require("./../models/User");
 const bcrypt = require("bcrypt");
 const uploader = require("./../config/cloudinary");
- const protectRoute = require("./../middlewares/protectPrivateRoute");
- const protectAdminRoute = require("./../middlewares/protectAdminRoute");
+const protectRoute = require("./../middlewares/protectPrivateRoute");
+const protectAdminRoute = require("./../middlewares/protectAdminRoute");
 
 //grace a middlwar = fonction req res next permet d'intercaller des actions
 //next gestion erreur qui va mener au prochain midlwar heberge ds ww
 
 
+//on cherches tout les users pr afficher les info et on populate pr afficher les fav
 router.get("/profile", protectRoute, (req, res) => {
-  res.render("profile", { title: 'mon profile' }
-    
-  );
+  userModel
+    .find()
+    .populate("favoris")
+    .then((dbRes) => {
+      res.render("profile", {
+        title: 'mon profile',
+        favoris: dbRes,
+      });
+
+    });
 });
 
 
 
-router.get("/dashboard/manage-users",protectAdminRoute, (req, res, next) => {
-  
+router.get("/dashboard/manage-users", protectAdminRoute, (req, res, next) => {
+
   // lire tous les users en db, puis render dans une vue avec une table qui liste tous les users
   userModel
     .find()
@@ -34,7 +42,7 @@ router.get("/dashboard/manage-users",protectAdminRoute, (req, res, next) => {
 });
 
 // lien dans mon form donc un get
-router.get("/users/edit/:id",protectAdminRoute, (req, res, next) => {
+router.get("/users/edit/:id", protectAdminRoute, (req, res, next) => {
   // récupère un user par id puis render un formulaire d'édition des roles
   userModel
     .findById(req.params.id)
@@ -49,8 +57,7 @@ router.get("/users/edit/:id",protectAdminRoute, (req, res, next) => {
 });
 
 
-router.post(
-  "/profile/edit/infos/:id",protectRoute,
+router.post("/profile/edit/infos/:id", protectRoute,
   uploader.single("avatar"),
   (req, res, next) => {
     const updatedUserInfos = req.body; // on stocke les infos postées dans cette constante
@@ -59,12 +66,15 @@ router.post(
       !updatedUserInfos.username ||
       !updatedUserInfos.email
     ) {
-      req.flash("warning", "veuillez remplir les champs.");    }
+      req.flash("warning", "veuillez remplir les champs.");
+    }
 
     if (req.file) updatedUserInfos.avatar = req.file.secure_url;
     // check la doc : https://mongoosejs.com/docs/api.html#model_Model.findByIdAndUpdate
     userModel // on update l'user par son id en fournissant les données postées
-      .findByIdAndUpdate(req.params.id, updatedUserInfos, { new: true }) // attention à l'option new: true
+      .findByIdAndUpdate(req.params.id, updatedUserInfos, {
+        new: true
+      }) // attention à l'option new: true
       .then((updatedUser) => {
         req.session.currentUser = updatedUser;
         req.flash("success", "Profil mis à jours.");
@@ -74,14 +84,15 @@ router.post(
   }
 );
 
-router.post("/profile/edit/password/:id",protectRoute, (req, res, next) => {
+router.post("/profile/edit/password/:id", protectRoute, (req, res, next) => {
   const updatedUserInfos = req.body; //  infos postées ici
   if (
     // on vérifie la présence de tous les champs requis
     !updatedUserInfos.oldPassword ||
     !updatedUserInfos.password
   ) {
-    req.flash("warning", "Veuillez remplir tous les champs.");  }
+    req.flash("warning", "Veuillez remplir tous les champs.");
+  }
   userModel // re recup l'user par son id 
     .findById(req.params.id) // pour pouvoir comparer l'ancien mot de passe
     .then((user) => {
@@ -110,7 +121,7 @@ router.post("/profile/edit/password/:id",protectRoute, (req, res, next) => {
 });
 
 //modifier les roles 
-router.post("/users/edit/:id",protectAdminRoute, (req, res, next) => {
+router.post("/users/edit/:id", protectAdminRoute, (req, res, next) => {
   //  mettre à jour un user en utilisant son id (req.params)
   userModel
     .findByIdAndUpdate(req.params.id, req.body)
@@ -123,25 +134,51 @@ router.post("/users/edit/:id",protectAdminRoute, (req, res, next) => {
 });
 
 
-
-// router.get("/deconnexion", (req, res) => {
-//   req.session.destroy(() => res.redirect("/sidentifier"));
-// });
-
 //suppr le users et redirige vers deconnexion qui destroy la session
 router.post("/users/delete/:id", (req, res, next) => {
- 
+
   userModel
     .findByIdAndDelete(req.params.id)
     .then((dbRes) => {
       //console.log("delete one users >>> ", dbRes);
       req.flash("success", "Profil supprimé.");
       if (req.session.currentUser && req.session.currentUser.role === "admin")
-      res.redirect("/dashboard");
-      else       
-      res.redirect("/deconnexion");
+        res.redirect("/dashboard");
+      else
+        res.redirect("/deconnexion");
     })
     .catch(next);
 });
 
+//afficher les gens de role utilisateurs
+router.get("/dashboard/manage-utilisateurs", protectAdminRoute, (req, res, next) => {
+
+  // lire tous les users en db, puis render dans une vue avec une table qui liste tous les users
+  userModel
+    .find()
+    .then((dbRes) => {
+      console.log("tout mes users >>> ", dbRes);
+      res.render("dashboard/manage-utilisateurs", {
+        users: dbRes,
+        title: "Gérer les utilisateurs",
+      });
+    })
+    .catch(next);
+});
+
+//afficher les gens de role editeurs
+router.get("/dashboard/manage-editeurs", protectAdminRoute, (req, res, next) => {
+
+  // lire tous les users en db, puis render dans une vue avec une table qui liste tous les users
+  userModel
+    .find()
+    .then((dbRes) => {
+      console.log("tout mes users >>> ", dbRes);
+      res.render("dashboard/manage-editeurs", {
+        users: dbRes,
+        title: "Gérer les editeurs",
+      });
+    })
+    .catch(next);
+});
 module.exports = router;

@@ -13,6 +13,7 @@ module.exports = function exposeLoginStatus(req, res, next) {
     //on defini le role des current user pour pouvoir gérer les connexions 
     res.locals.isAdmin = req.session.currentUser.role === "admin";
     res.locals.isEditor = req.session.currentUser.role === "editor";
+    res.locals.isUser = req.session.currentUser.role === "user";
 
   }
   next();

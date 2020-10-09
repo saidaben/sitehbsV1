@@ -10,6 +10,7 @@
     "bcrypt": "^5.0.0",
     "cloudinary": "^1.22.0",
     "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.2.0",
     "connect-mongodb-session": "^2.3.3",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",

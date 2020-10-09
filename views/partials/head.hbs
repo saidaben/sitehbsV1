@@ -1,26 +1,49 @@
 <head>
+  
+  {{!-- méta-informations,tte les données qui ne sont pas représentées directement à l'écran --}}
+
+  {{!-- permet l'encodage des caractères. utf8 tte les langues --}}
   <meta charset="UTF-8">
-  <!-- couleur du navigateur en rose -->
+
+  <!-- couleur du navigateur en rose chrome-->
   <meta name="theme-color" content="#eeaeca">
+  <!--  Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Windows  -->
+  <meta name="msapplication-navbutton-color" content="#eeaeca">
+
   <meta name="description"
     content="Promotion de l'éducation positive, le blog Rise Up à pour vocation de créer une première reflexion sur l'éducation positive / bienveillante et donner l'envie aux gens de faire de plus amples recherches. ">
+  {{!-- <meta name="keywords"
+    content="enfance, éducation, positive, heureux, psychologie, veo, émotion, bléssures, bienveillance" /> --}}
   <meta name="auteur" content="Saida Benadour 2020">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>Rise Child up!</title>
+
   {{!-- liens css --}}
   <link rel="stylesheet" href="/stylesheets/menu.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="/stylesheets/loisirs.css">
+
   {{!-- font --}}
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital@1&display=swap" rel="stylesheet">
-  {{!-- oeil mdp--}}
+
+  {{!-- fontawsom oeil et triangle--}}
   <script src="https://kit.fontawesome.com/e25b852c87.js" crossorigin="anonymous"></script>
-  {{!-- script js --}}
+
   {{!-- alerte perso --}}
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script type="module" src="/javascripts/menu.js"></script>
+
+  {{!-- apl axios  --}}
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  {{!-- script js menu burger et oeil--}}
+  <script type="module" src="/javascripts/menu.js"></script>
+
+  {{!-- js est un tableau this correspond à sortie ou livre ds la route ds index --}}
   {{#each js}}
   <script type="module" src="/javascripts/{{this}}.js"></script>
   {{/each}}

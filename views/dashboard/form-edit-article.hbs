@@ -17,8 +17,6 @@
         <input class="input" id="sous_titre" type="text" name="sous_titre" value="{{article.sous_titre}}">
 
         <label for="contenu" class="label"><b>Contenu</b></label>
-        {{!-- <input class="input" id="contenu" type="text" name="contenu" value="{{article.contenu}}" rows="10">
-<br> --}}
         <textarea class="input" name="contenu" value="" rows="10">{{article.contenu}}</textarea>
 
         <label for="categorie" class="label"><b>Categorie</b></label>
@@ -27,8 +25,10 @@
             <option value="Partage d éxpérience">Partage d éxpérience</option>
             <option value="Conseils de professionnel">Conseils de professionnel</option>
             <option value="Les fondamentaux">Les fondamentaux</option>
-             <option value="Brouillons">Brouillons</option>
-        </select <label for="auteur" class="label"><b>Auteur</b></label>
+            <option value="Brouillons">Brouillons</option>
+        </select>
+
+        <label for="auteur" class="label"><b>Auteur</b></label>
         <input class="input" id="auteur" type="text" name="auteur" value="{{article.auteur}}">
 
         <label for="redacteurs" class="label"><b>redacteur</b></label>
@@ -37,6 +37,7 @@
             {{#each redacteurs}}
             <option value="{{this._id}}"> {{this.username}}</option>
             {{/each}}
+
             {{!-- preview de l'image  --}}
             <img class="picto-nav" src="{{article.image}}" alt="">
 

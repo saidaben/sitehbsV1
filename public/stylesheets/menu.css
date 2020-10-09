@@ -12,34 +12,41 @@
     color: plum;
     font-size: 16px;
     border: none;
-    width: 128px; 
-     }
-  
-  .dropdown {
+    width: 128px;
+}
+
+.dropdown {
     position: relative;
     display: inline-block;
-  }
-  
-  .dropdown-content {
+}
+
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: white;
     min-width: 160px;
     z-index: 1;
-  }
-  
-  .dropdown-content a {
+}
+
+.dropdown-content a {
     color: plum;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  }
-  
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  .dropdown:hover .dropbtn {background-color: white; color:plum}
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: white;
+    color: plum
+}
 
 /* scroll bar */
 ::-webkit-scrollbar {
@@ -69,6 +76,7 @@ nav {
     min-height: 8vh;
     width: 620px;
 }
+
 header>a {
     text-decoration: none;
     width: 200px;
@@ -80,14 +88,15 @@ header>a {
     /* bouton ecarté  */
     justify-content: space-around;
 }
-.submenu{
+
+.submenu {
     display: flex;
-     flex-direction: column;
-      position: fixed;
-      right: 274px;
-      height: 100%;
-      top: 9vh;
-     
+    flex-direction: column;
+    position: fixed;
+    right: 274px;
+    height: 100%;
+    top: 9vh;
+
 }
 
 
@@ -95,14 +104,15 @@ header>a {
 .submenu:hover {
     display: flex;
     flex-direction: column;
-   display: block;
+    display: block;
     position: fixed;
     right: 274px;
     height: 100%;
     top: 15vh;
-    overflow: hidden;}
+    overflow: hidden;
+}
 
-   
+
 
 .nav-links>li {
     list-style: none;
@@ -115,46 +125,70 @@ header>a {
     text-decoration: none;
     font-size: 15px;
 }
+
 .burger {
     display: none;
     cursor: pointer;
     z-index: 10;
 }
 
-.picto{width:40px;
-height: 40px;}
+.picto {
+    width: 40px;
+    height: 40px;
+}
 
-.tester{display: none;}
-.citation{display: block;}
+.tester {
+    display: none;
+}
 
+.citation {
+    display: block;
+}
 
-
+@media screen and (max-width:900px) {
+    h1 {
+        margin-top: 63px;
+    }
+}
 
 
 /* /////////////////////* media query */
 
-/* inferieur a 768 = tablette*/ 
-@media screen and (max-width:768px){
-   .container-home{padding-left: 3px;
-    padding-right: 3px;
-    max-width: 100%;
-}
-    thead{
-    height: 50%;} 
+/* inferieur a 768 = tablette*/
+@media screen and (max-width:768px) {
+    .container-home {
+        padding-left: 3px;
+        padding-right: 3px;
+        max-width: 100%;
+    }
 
-.slider{display:none}
-    
-.citation{display: none;}
-.tester{display: block;
-    margin: auto}
+    thead {
+        height: 50%;
+    }
 
-    .spanburger{z-index: 4;}
+    .slider {
+        display: none
+    }
+
+    .citation {
+        display: none;
+    }
+
+    .tester {
+        display: block;
+        margin: auto
+    }
+
+    .spanburger {
+        z-index: 4;
+    }
+
     .nav-links {
         position: fixed;
         right: 0;
         height: 100%;
         top: 0vh;
-        background:white;
+        background: white;
         display: flex;
         flex-direction: column;
         /* reglage horizontal comme colomn */
@@ -170,13 +204,14 @@ height: 40px;}
     /* en js pr changer la nav */
     .nav-active {
         transform: translateX(0%);
-        
+
     }
 
     /* X masque le scroll horizontal */
     body {
         overflow-x: hidden;
     }
+
     .burger {
         display: block;
         /* vh hauteur vw largeur */
@@ -187,37 +222,43 @@ height: 40px;}
         left: 85%;
     }
 
-.boy{visibility: hidden;}
+    .boy {
+        visibility: hidden;
+    }
 
-.up{visibility: hidden}
+    .up {
+        visibility: hidden
+    }
 
 
     .menu {
-       position: fixed;
-    top:0}
-      
+        position: fixed;
+        top: 0
+    }
 
-        .conteneur-rs {
-            display: flex;
-            /* alignment horizonral */
-            justify-content: space-around;
-            flex-direction: row;
-            /* centré au milieu */
-            align-items: center;
-            min-height: 8vh;
-            list-style: none;
-            color:dodgerblue;
-            font-family: 'Josefin Sans', sans-serif;
-        
-        }
-        h3.title{font-size: 24px;}   
 
-        
-          
+    .conteneur-rs {
+        display: flex;
+        /* alignment horizonral */
+        justify-content: space-around;
+        flex-direction: row;
+        /* centré au milieu */
+        align-items: center;
+        min-height: 8vh;
+        list-style: none;
+        color: dodgerblue;
+        font-family: 'Josefin Sans', sans-serif;
+
+    }
+
+    h3.title {
+        font-size: 24px;
+    }
+
+
+
+    .artblog {
+        max-height: 100%;
+        min-height: 100%;
+    }
 }
-
-
-@media screen and (min-device-width: 320px) {
-
-
-body{background: yellow;}}

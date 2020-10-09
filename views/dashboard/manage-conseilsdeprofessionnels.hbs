@@ -1,20 +1,12 @@
 <hgroup>
-    <h2 class="apropos">Manager <span>les ar</span>ticles</h2>
-    <h3>Il y a : {{articles.length}} articles en ligne.</h3>
+    <h2 class="apropos">Manager <span>les Conseils</span>de Professionnels</h2>
+     <h3><a class="dropbtn" href="/dashboard/manage-articles"> <i class="fas fa-backward"></i>  Retour au gestionnaire</a></h3>
 </hgroup>
 
-<ul class="container-manage-categories">
-    <li> <a class="dropbtn" href="/dashboard/manage-partagedexperiences"><i class="fas fa-angle-right"></i>Partages
-            d'Expériences</a></li>
-    <li><a class="dropbtn" href="/dashboard/manage-conseilsdeprofessionnels"><i class="fas fa-angle-right"></i>Conseils
-            de Professionnels</a></li>
-    <li><a class="dropbtn" href="/dashboard/manage-fondamentaux"><i class="fas fa-angle-right"></i>Les Fondamentaux</a>
-    </li>
-    <li><a class="dropbtn" href="/dashboard/manage-brouillons"><i class="fas fa-angle-right"></i>Brouillons</a></li>
-</ul>
+
 <section class="container-dashboard">
 
-    {{#each articles}}
+      {{#each articles}} {{#compare categorie "Conseils de professionnel" operator="==="}}
     <table class="tabler">
 
         {{!-- thead fix mediac --}}
@@ -63,7 +55,7 @@
 
         </tbody>
     </table>
-    {{/each}}
+  {{/compare}}  {{/each}}
 </section>
 
 <script>

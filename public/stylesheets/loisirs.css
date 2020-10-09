@@ -7,6 +7,7 @@
     align-items: center;
     justify-content: center;
     margin-left: 20px;
+
     background-image: url(/images/loupe.png);
     background-repeat: no-repeat;
     padding-left: 30px;
@@ -31,11 +32,11 @@ span {
 }
 
 #sortie {
-    margin-top: 100px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
+    max-width: 100%;
 }
 
 
@@ -136,7 +137,7 @@ a {
     width: 50px;
 }
 
-.essai {
+.info-sortie {
     flex-direction: column;
     padding-bottom: 10px;
 }
@@ -178,7 +179,6 @@ span {
     font-size: 15px;
     margin: 10px 10px 10px 10px;
     background: white;
-    padding-top: 40px;
     padding-bottom: 30px;
     margin-bottom: 130px;
     border-radius: 10px;
@@ -202,15 +202,26 @@ span {
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
+    max-width: 100%;
 }
 
 .api-livres {
-    min-width: 100%;
+    max-width: 100%;
     margin: auto;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-
     display: flex;
+    padding: 30px
+}
+
+
+.container-pages-sorties {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
 }

@@ -1,21 +1,22 @@
-
-    <section class="api-livres">
-  <hgroup>
-            <h2 id="apropos"><span>Je recherche </span>un livre.</h2>
-            <h3> Vous êtes à cours d'idée lecture et souhaitez étoffer votre bibliothèque? 
-                Renseigner le titre du livre recherché ou scrollé vers le bas.</h3>
-        </hgroup>
-
-
-     <input class="triType" type="radio" value="type" name="type-tri" >
-        <label for="triType">Recherche par Type de lecture</label>
-
-        <input class="triNom" type="radio" value="nom" name="type-tri" checked>
-        <label for="type-tri">Recherche par Titre de livre</label>
-
-        <input type="text" id="input-livre" placeholder="Recherche un livre">
-        <ul id="ouvrages"></ul> <p class="erreur">Oups! aucun livres trouvés, verifiez l'orthographe.</p>
-    </section>
+<section class="api-livres">
+    <hgroup>
+        <h2 id="apropos"><span>Je recherche </span>un livre.</h2>
+        <h3> Vous êtes à cours d'idée lecture et souhaitez étoffer votre bibliothèque?
+            Renseigner le type ou le titre de livre recherché ou scrollé vers le bas.</h3>
+    </hgroup>
 
 
+    <input class="triType" type="radio" value="type" name="type-tri">
+    <label for="triType">Recherche par Type de lecture</label>
 
+    <input class="triNom" type="radio" value="nom" name="type-tri" checked>
+    <label for="type-tri">Recherche par Titre de livre</label>
+
+    <input type="text" id="input-livre" placeholder="Recherche un livre">
+
+    <ul class="container-pages-sorties" id="pages"></ul>
+
+
+    <ul id="ouvrages"></ul>
+    <p class="erreur">Oups! aucun livres trouvés, verifiez l'orthographe.</p>
+</section>

@@ -1,25 +1,20 @@
-
-  <hgroup>
+<hgroup>
     <h2 id="apropos">Modifier<span> un des utilisa</span>teurs.</h2>
-   <h3>Il y a : {{users.length}} utilisateurs inscrit.</h3>
+  <h3><a class="dropbtn" href="/dashboard/manage-users"> <i class="fas fa-backward"></i>  Retour au gestionnaire</a></h3>
   </hgroup>
 
-<ul class="container-manage-categories">
-    <li><a class="dropbtn" href="/dashboard/manage-editeurs"><i class="fas fa-angle-right"></i>Les Editeurs</a></li>
-    <li><a class="dropbtn" href="/dashboard/manage-utilisateurs"><i class="fas fa-angle-right"></i>Les Utilisateurs</a></li>
-   
-</ul>
+
   <section class="container-dashboard">
-     {{#each users}}   
+      {{#each users}} {{#compare role "user" operator="==="}} 
 <table class="tabler">
     <thead>
         <tr >
-            <th class="cell">Avatar</th>
-            <th class="cell">Username</th>
-            <th class="cell">E-mail</th>
-            <th class="cell">Rôle</th>
-            <th class="cell">Editer</th>
-            <th class="cell">Supprimer</th>
+            <th class="cell">avatar</th>
+            <th class="cell">username</th>
+            <th class="cell">mail</th>
+            <th class="cell">role</th>
+            <th class="cell">edit</th>
+            <th class="cell">delete</th>
         </tr>
     </thead>
     <tbody>
@@ -49,6 +44,6 @@
     </tbody>
      
 </table>
-  {{/each}}
+  {{/compare}} {{/each}}
 </section>
 

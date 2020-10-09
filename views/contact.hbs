@@ -1,32 +1,34 @@
-       <section class="contain">
-   <hgroup >
+<section class="contain">
+  <hgroup>
     <h2 class="apropos">Formul<span>aire </span>de contact</h2>
     <h3>Remplissez les champs ci dessous nous traiterons votre demande dès que possible. </h3>
-</hgroup>
- 
+  </hgroup>
 
- 
 
- <form class="container-inscr" action="/contact" method="post">
 
-  
-     <label  for="sujet">Sujet</label>
-      <select class="label input"  id="sujet" name="sujet" required>
-        <option value="" disabled selected> Choisir un sujet...</option>
-        <option value="Demande de partenariat">Demande de partenariat</option>
-        <option value="Partage d'experience">Partage d'experience</option>
-        <option value="Entrer en contact avec un de nos auteurs">Entrer en contact avec un de nos auteurs</option>
-      </select>
 
-	  
-	    <label for="email">Email</label>
-	    <input id="email" class="input" type="email" name="email"  required placeholder="Email">
+  <form class="container-inscr" action="/contact" method="post">
 
-	  
 
-	    <label  for="message">Message</label>
-	    <textarea id="message" name="message" class="input"  required placeholder="Votre message" rows="6"></textarea>
+    <label for="sujet">Sujet</label>
+    <select class="label input" id="sujet" name="sujet" required>
+      <option value="" disabled selected> Choisir un sujet...</option>
+      <option value="Demande de partenariat">Demande de partenariat</option>
+      <option value="Partage d'experience">Partage d'experience</option>
+      <option value="Entrer en contact avec un de nos auteurs">Entrer en contact avec un de nos auteurs</option>
+      <option value="Autre">Autre</option>
+    </select>
 
-	 
-	  <button  class="button-contact" type="submit" id="submit" >Envoyer</button>
-	</form></section>
+
+    <label for="email">Email</label>
+    <input id="email" class="input" type="email" name="email" required placeholder="Email">
+
+
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" class="input" required placeholder="Votre message" rows="6"></textarea>
+
+
+    <button class="button-contact" type="submit" id="submit">Envoyer</button>
+  </form>
+</section>

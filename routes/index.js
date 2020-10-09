@@ -15,8 +15,6 @@ router.get('/', function (req, res, next) {
   });
 });
 
-
-
 // get blog
 router.get("/blog", function (req, res, next) {
   res.render('blog', {
@@ -30,7 +28,6 @@ router.get("/art", function (req, res, next) {
     title: 'article'
   });
 });
-
 
 // get sorties
 router.get("/sorties", function (req, res, next) {
@@ -48,7 +45,6 @@ router.get("/livres", function (req, res, next) {
   });
 });
 
-
 // get contact
 router.get("/contact", function (req, res, next) {
   res.render('contact', {
@@ -63,35 +59,7 @@ router.get("/mentionslegales", function (req, res, next) {
   });
 });
 
-
-
-//testtt form contact
-
-// router.post('/contact', function(req, res, next){
-//   mailer.extend(app, {
-//     from: req.body.email,
-
-
-//     host: 'smtp.mailtrap.io',
-//     secureConnection: false,
-//     port: 25,
-//     transportMethod: 'SMTP'
-//   });
-
-//  app.mailer.send('email', {
-
-//     to: 'benadour.saida@gmail.com',
-//     subject: req.body.sujet,
-//     message: req.body.message
-//   }, function(err){
-//     if(err){
-//       console.log('On a une erreur!');return;
-//     }
-//     res.send('Email envoyé');
-//   });
-// });
-
-// async..await is not allowed in global scope, must use a wrapper
+// ************ formulaire de contact
 async function sendMail(infos) {
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
@@ -106,14 +74,13 @@ async function sendMail(infos) {
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: `👻 ${infos.from} 👻`, // sender address
+    from: ` ${infos.from} `, // sender address
     to: mail_user_address, // list of receivers
     subject: infos.subject, // Subject line
     text: infos.message, // plain text body
     html: `<div>${infos.message}</div>`, // html body
   });
 
-  console.log("Message sent: %s", info.messageId);
 }
 
 router.post("/contact", async (req, res, next) => {

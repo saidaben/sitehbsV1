@@ -1,5 +1,6 @@
 // on connecte notre appli back a la bdd
 
+//dependance pr connecter notre apli a la bdd
 const mongoose = require("mongoose");
 
 // clef a ajouter ds le .env

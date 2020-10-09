@@ -1,26 +1,29 @@
 <section class="contain">
   <hgroup>
-    <h2 id="apropos">Les <span>informations</span> de:</h2>
+    <h2>Les <span>informations</span> de:</h2>
     <h3> {{user.username}}</h3>
   </hgroup>
 
-<section  class="container-inscr">
-<p class="p-info-user">-Id : {{user.id}}</p>
-<p class="p-info-user">-Prénom : {{user.username}}</p>
-<p class="p-info-user">-Email : {{user.email}}</p>
-<p class="p-info-user">-Role : {{user.role}}</p>
-<p class="p-info-user">-Inscrit depuis le : {{user.date_inscription}}</p>
+  <section class="container-inscr">
+    <p class="p-info-user"><i class="fas fa-angle-right"></i>Id : {{user.id}}</p>
+    <p class="p-info-user"><i class="fas fa-angle-right"></i>Prénom : {{user.username}}</p>
+    <p class="p-info-user"><i class="fas fa-angle-right"></i>Email : {{user.email}}</p>
+    <p class="p-info-user"><i class="fas fa-angle-right"></i>Role : {{user.role}}</p>
+    <p class="p-info-user"><i class="fas fa-angle-right"></i>Inscrit depuis le : {{user.date_inscription}}</p>
+    {{!-- <p class="p-info-user"><i class="fas fa-angle-right"></i>moment{{user.date_inscription}}.format("DD/MM/YYYY") --}}
+  </section>
 
-</section>
-
-<hgroup>
-    <h2 id="apropos">Mettre à <span>jour le role</span> de:</h2>
+  <hgroup>
+    <h2>Mettre à <span>jour le role</span> de:</h2>
     <h3> {{user.username}} qui est un {{user.role}}</h3>
   </hgroup>
+
+
   <form method="post" action="/users/edit/{{user._id}}" class="form container-inscr">
 
 
     <div class="role">
+
       <label for="radio-user" class="label">user</label>
       <input id="radio-user" name="role" value="user" type="radio">
 
@@ -29,17 +32,21 @@
 
       <label for="radio-admin" class="label">admin</label>
       <input id="radio-admin" name="role" value="admin" type="radio">
+
     </div>
+
     <button class="button-poster">Mettre à jour.</button>
 
   </form>
 
-<hgroup>
-    <h2 id="apropos">Supprimer <span>l'</span> utilisateur:</h2>
+  <hgroup>
+    <h2>Supprimer <span>l'</span> utilisateur:</h2>
     <h3> {{user.username}} qui est un {{user.role}}</h3>
   </hgroup>
+
   <form method="post" action="/users/delete/{{user._id}}" class="form container-inscr">
-  <p class="p-supr">Etes vous vraiment sûr de vouloir supprimer "{{user.username}}"</p>
+
+    <p class="p-supr">Etes vous vraiment sûr de vouloir supprimer "{{user.username}}"</p>
     <button>
       <img class="picto-nav" src="/images/supr.svg" alt="">
     </button>
@@ -48,5 +55,5 @@
 </section>
 
 <script>
-window.swal(' Attention', 'Toute suppression est définitive', 'warning')
+  window.swal(' Attention', 'Toute suppression est définitive', 'warning')
 </script>

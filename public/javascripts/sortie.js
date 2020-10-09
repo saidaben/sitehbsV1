@@ -1,21 +1,31 @@
-const URLB = "https://opendata.paris.fr/api/records/1.0/search/?dataset=que-faire-a-paris-&q=&rows=660&facet=category&facet=tags&facet=address_zipcode&facet=address_city&facet=pmr&facet=blind&facet=deaf&facet=access_type&facet=price_type&refine.tags=Enfants";
+const URLB = "https://opendata.paris.fr/api/records/1.0/search/?dataset=que-faire-a-paris-&q=&rows=400&facet=category&facet=tags&facet=address_zipcode&facet=address_city&facet=pmr&facet=blind&facet=deaf&facet=access_type&facet=price_type&refine.tags=Enfants";
 const list = document.getElementById("sortie"); //On récupère notre URL, on appel notre ul  list
 const input = document.getElementById("inputb"); //on récupère notre input
-const erreur = document.getElementById("erreur");
+const erreur = document.getElementById("erreur"); //on recupere le p 
 
-function getDatab() {
+function getDatab(page) {
     axios //on utilise axios
         .get(URLB) //pr recup (get) les donnees localisées a cette url
         //.then((res) =>console.log("here")) si succes requete:on affiche
-       .then((res) => displayb(res.data.records)) //si succes requete:on affiche
+        .then((res) => start(res.data.records, page)) //si succes requete:on affiche
         .catch((err) => console.error(err)); //sinn on log err ds la consol
-
 }
 
-function displayb(sorties) { //stations est un tableau d'objet
+getDatab(0); //on lance le programme en allant chercher les donnees via l api d'open data paris */}
+
+function start(res, page) {
+    const sorties = res
+    const pagination1 = pagination(sorties, 6)
+    console.log(pagination1)
+    displayb(pagination1, page)
+}
+
+function displayb(pagination, page) { //stations est un tableau d'objet
 
     const list = document.getElementById("sortie"); // on recup le ul ds lequel on veut realiser l'affichage
-
+    list.innerHTML = "";
+    const sorties = pagination[page]
+    console.log("<<<", sorties)
     sorties.forEach((sortie) => { //parcours de chaques sortie avc une boucle
         const li = document.createElement("li"); //crea li h2 p
         const h3 = document.createElement("h3");
@@ -23,8 +33,8 @@ function displayb(sorties) { //stations est un tableau d'objet
         const h6 = document.createElement("h6")
         const div = document.createElement("div")
         const p = document.createElement("p");
-        const pix = document.createElement("figure")
-        const button = document.createElement("button")
+        const pix = document.createElement("figure");
+        const button = document.createElement("button");
         // const h6 = document.createElement()
 
 
@@ -39,19 +49,16 @@ function displayb(sorties) { //stations est un tableau d'objet
         pix.innerHTML = `<img itemprop="image" class="imgsortie" src=images/sortie.jpg >`;
         pix.style.margin = "20px 10px 20px 10px";
 
-        div.innerHTML = `<figure class="essai"> <img  itemprop="date" class="date teste" src=images/date.png> ${sortie.fields.date_description}</figure>  
-<figure class="essai"> <img  itemprop="price" class="price teste" src=images/price.png>Tarif:  ${sortie.fields.price_type}</figure>   
-<figure class="essai"><img  itemprop="address" class="date teste" src=images/lieux.png> Adresse:${sortie.fields.address_name} 
-<br> ${sortie.fields.address_zipcode}  ${sortie.fields.address_city}  </figure>  
+        div.innerHTML = `<figure class="info-sortie" itemprop="date"> <img  itemprop="date" class="date teste" src=images/date.png> ${sortie.fields.date_description}</figure>  
+<figure class="info-sortie"itemprop="prix" > <img  itemprop="price" class="price teste" src=images/price.png>Tarif:  ${sortie.fields.price_type}</figure>   
+<figure class="info-sortie" itemprop="adressLocality"><img  itemprop="streetAddress" class="date teste" src=images/lieux.png> Adresse:${sortie.fields.address_name} 
+<br>  ${sortie.fields.address_zipcode}  ${sortie.fields.address_city}  </figure>  
  `;
-        //     h6.innerHTML = `<img itemprop="date" class="date" src=images/date.png> ${sortie.fields.date_description}  <br> <img itemprop="price" class="price" src=images/price.png> Tarif:  ${sortie.fields.price_type} <br> <img itemprop="address" class="date" src=images/lieux.png> Adresse:
-        // ${sortie.fields.address_name} `;
+        div.className = "itemscope";
         div.style.backgroundColor = "lavenderblush";
         div.style.width = "100%";
         h6.style.paddingBottom = "20px";
         h6.style.fontSize = "15px";
-
-
 
         button.innerHTML = `<a itemprop="email" target="_blank" href="${sortie.fields.contact_url}">En savoir + </button> </a >`;
         button.style.backgroundColor = "lavenderblush";
@@ -66,9 +73,9 @@ function displayb(sorties) { //stations est un tableau d'objet
         li.appendChild(h6);
 
         p.innerHTML = `
-      ${sortie.fields.lead_text} `; //affichage descr
+        ${sortie.fields.lead_text} `; //affichage descr
         p.style.margin = "30px";
-        p.style.textAlign = "justify"
+        p.style.textAlign = "center"
         p.style.fontSize = "20px";
 
         li.appendChild(p); //p ds le li
@@ -78,10 +85,12 @@ function displayb(sorties) { //stations est un tableau d'objet
         //enfin on insere le li constitué ds le il
 
     });
+    afficherpagination(pagination)
 }
 
 function handleClickb(evt) { //togle une class css is active sur chaque li cliqué
     evt.target.classList.toggle("is-active");
+
 }
 
 
@@ -109,6 +118,35 @@ function filtersorties() {
 if (input) input.oninput = filtersorties //on affiche la list qu'on à  filtré précédement dans l'input 
 
 
+//on recup le ul et la fonction pagination avc les livre et le nombre de page voulu en params
+function afficherpagination(sorties) {
 
+    const paginationElement = document.getElementById("pages-sorties")
+    paginationElement.innerHTML = "" //on vide le ul 
+    for (let i = 0; i < sorties.length; i += 1) {
+        paginationElement.innerHTML += //et on fait une boucle pr ajouter un li le remplir a chaque tour d'une page 
+            ` <li> <button class="dropbtn btn-pagination" data-page=${i+1}> <i class="fas fa-angle-right"></i>${i+1} </button></li> 
+`
+    }
+    //on recup le les li généré en haut 
+    const allLi = document.querySelectorAll(".btn-pagination")
+    allLi.forEach((li, i) => { //on boucle dessus pr ajouter un onclick a chacun 
+        li.onclick = () => getDatab(i)
+    })
 
-getDatab(); //on lance le programme en allant chercher les donnees via l api d'open data paris */}
+}
+
+function pagination(list, numberOfPage) {
+    const pages = [];
+    const numberElementsOfOnePage = list.length / numberOfPage; // je divise tout les element par le nombre de pages choisis
+    var pageIndex = [0, numberElementsOfOnePage];
+    for (let i = 0; i <= numberOfPage - 1; i++) {
+        let page = list.filter((el, b) => b <= pageIndex[1] && b >= pageIndex[0])
+        if (page.length != 0) pages.push(page)
+
+        let from = pageIndex[0] + numberElementsOfOnePage,
+            to = pageIndex[1] + numberElementsOfOnePage;
+        pageIndex = [from, to];
+    }
+    return pages;
+}

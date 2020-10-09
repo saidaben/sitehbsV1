@@ -1,24 +1,29 @@
-
 <section class="contain">
-   
-    <hgroup>
-        <h2 id="apropos">Art<span>icles</span>.</h2>
-        <h3> Les fondamentaux.</h3>
-    </hgroup>
 
-<section class="container-art">
-  {{#each articles}}
-  {{#compare categorie "Les fondamentaux" operator="==="}}
+  <hgroup>
+    <h2 id="apropos">Art<span>icles</span>.</h2>
+    <h3> Les fondamentaux.</h3>
+  </hgroup>
+
+  <section class="container-art">
+    {{#each articles}}
+    {{#compare categorie "Les fondamentaux" operator="==="}}
 
 
-  <figure class="blog"><a href="/art"></a> <img  class="artblog" src="{{this.image}}" alt="image enfance">
-    <figcaption>
-      <p class="titre-figcaption">{{this.titre}} </p>  <a href="/art/{{this._id}}">>Accédez à l'article</a>
-    </figcaption>
-  </figure>
+    <figure class="blog"><a href="/art"></a> <img class="artblog" src="{{this.image}}" alt="image enfance">
+      <figcaption>
+        <p class="titre-figcaption">{{this.titre}} </p> <a href="/art/{{this._id}}"><i
+            class="fas fa-angle-right"></i>Accédez à l'article</a>
+        <a href="/article/favoris/{{this._id}}"><img class="favoris" src="/images/fav.png" alt=""></a>
+      </figcaption>
 
-  {{/compare}} {{/each}}
 
- 
-</section>
+    </figure>
+
+    </figure>
+
+    {{/compare}} {{/each}}
+
+
+  </section>
 </section>

@@ -1,70 +1,92 @@
-
 <hgroup>
-<h2> Hel<span>lo {{currentUser.username}}</span> <img class="picto" src="{{currentUser.avatar}}" alt=""></h2> 
-  
-  </hgroup>
+    <h2> Hel<span>lo {{currentUser.username}}</span> <img class="picto" src="{{currentUser.avatar}}" alt=""></h2>
+
+</hgroup>
 <div class="container-profil">
-    <p class="p-profil">Bienvenue sur ton profil, tu pourras y modifier tes informations personnels ou supprimer ton compte. </p>
-</div> 
+    <p class="p-profil">Bienvenue sur ton profil, tu pourras y modifier tes informations personnels ou supprimer ton
+        compte. </p>
+</div>
 
 
 
-<section class="contain">
- 
-     <hgroup class="hgroup-profil">
-        <h2 id="apropos">Mettre <span>à jour mon profil</span>.</h2>
-        <h3> Remplir les champs ci dessous.</h3>
-    </hgroup>
 
- 
-    <form method="post" action="/profile/edit/infos/{{currentUser._id}}" class="container-inscr" enctype="multipart/form-data">
+<hgroup class="hgroup-profil">
+    <h2 id="apropos">Mes <span>favoris </span>.</h2>
+    <h3> Ma listes d'articles archivés.</h3>
+</hgroup>
+<div class="container-favoris">
+    {{#each favoris}}
+    {{!-- <p>{{this.favoris}}</p> --}}
+    {{!-- <p>{{this.favoris.titre}}</p>  --}}
+    {{!-- <p>{{favoris.titre}}</p> --}}
+    {{!-- {{this.titre}} --}}
+    {{!-- <p>{{favoris.[0]}}</p>  --}}
+    Vous avez {{favoris.length}} articles en archives.
 
-   
+    {{/each}}
+</div>
+
+
+
+
+
+
+<hgroup class="hgroup-profil">
+    <h2>Mettre <span>à jour mon profil</span>.</h2>
+    <h3> Remplir les champs ci dessous.</h3>
+</hgroup>
+
+
+<form method="post" action="/profile/edit/infos/{{currentUser._id}}" class="container-inscr"
+    enctype="multipart/form-data">
+
+
     <label for="input-username" class="label"><b>Nom d'utilisateur</b></label>
     <input id="input-username" type="text" class="input" value="{{currentUser.username}}" name="username">
     <label for="input-email" class="label"><b>Email</b></label>
     <input id="input-email" type="email" class="input" value="{{currentUser.email}}" name="email">
     <label for="input-avatar" class="is-clickable"><b>Changer d'avatar</b></label>
-    <input id="input-avatar" type="file" class="input" name="avatar"> 
-    <button class="button-poster" ><b>Mettre à jours</b></button>
+    <input id="input-avatar" type="file" class="input" name="avatar">
+    <button class="button-poster"><b>Mettre à jours</b></button>
 </form>
 
- <hgroup class="hgroup-profil">
-        <h2 class="apropos">Mettre à jour mon mot <span>de passe</span>.</h2>
-        <h3> Remplir les champs ci-dessous .</h3>
-    </hgroup>
+<hgroup class="hgroup-profil">
+    <h2>Mettre à jour mon mot <span>de passe</span>.</h2>
+    <h3> Remplir les champs ci-dessous .</h3>
+</hgroup>
 
 <form method="post" action="/profile/edit/password/{{currentUser._id}}" class="container-inscr">
- 
+
 
     <label for="input-old-password" class="label"><b>Ancien mot de passe</b></label>
-    <input id="input-old-password" type="password" class="input" name="oldPassword" placeholder="Votre ancien mot de passe">
+    <input id="input-old-password" type="password" class="input" name="oldPassword"
+        placeholder="Votre ancien mot de passe">
     <label for="input-password" class="label"><b>Nouveau mot de passe</b></label>
-    <input id="input-password" type="password" class="input" name="password" placeholder="Votre nouveau mot de passe"> <br>
+    <input id="input-password" type="password" class="input" name="password" placeholder="Votre nouveau mot de passe">
+    <br>
     <button class="button-poster">Mettre à jours</button>
 </form>
 
 
 <hgroup class="hgroup-profil">
-        <h2 class="apropos">Je supprime <span> mon compte</span>.</h2>
-        <h3> Cette action est définitive .</h3>
-    </hgroup>
-
-  
+    <h2 class="apropos">Je supprime <span> mon compte</span>.</h2>
+    <h3> Cette action est définitive .</h3>
+</hgroup>
 
 
- <form method="post" class="container-inscr" action="/users/delete/{{currentUser._id}}"> 
- <p><i>En conformité avec le Règlement général sur la protection des données vous pouvez supprimer votre compte</i> </p>
-  <a href="#modal" aria-label="open navigation"><img class="picto-nav" src="/images/supr.svg" alt="supprimer">
- </a>
- <div id="modal" >
-     
-      <a  href="#" aria-label="Close modal" class="fermer a-dashboard">Annuler </a>
-     <p class="close" >Êtes vous sûr? Cette action est définitive.</p>
-  <button class="close" ><img class="picto-nav" src="/images/supr.svg" alt="supprimer"></button>
- 
 
-</div>
+
+<form method="post" class="container-inscr" action="/users/delete/{{currentUser._id}}">
+    <p><i>En conformité avec le Règlement général sur la protection des données vous pouvez supprimer votre compte</i>
+    </p>
+    <a href="#modal" aria-label="open navigation"><img class="picto-nav" src="/images/supr.svg" alt="supprimer">
+    </a>
+    <div id="modal">
+
+        <a href="#" aria-label="Close modal" class="fermer a-dashboard">Annuler </a>
+        <p class="close">Êtes vous sûr? Cette action est définitive.</p>
+        <button class="close"><img class="picto-nav" src="/images/supr.svg" alt="supprimer"></button>
+
+
+    </div>
 </form>
-
- </section>

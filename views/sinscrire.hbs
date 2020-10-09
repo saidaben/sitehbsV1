@@ -1,36 +1,31 @@
-
- <section class="contain">
-    <hgroup>
-        <h2 id="apropos">S'<span>inscrire</span>.</h2>
-        <h3> Remplir les champs ci-dessous pour créer votre espace personnel.</h3>
-    </hgroup>
-
-
-<form class="container-inscr" method="post" action="/sinscrire" enctype="multipart/form-data" >
+<section class="contain">
+  <hgroup>
+    <h2 id="apropos">S'<span>inscrire</span>.</h2>
+    <h3> Remplir les champs ci-dessous pour créer votre espace personnel.</h3>
+  </hgroup>
 
 
+  <form class="container-inscr" method="post" action="/sinscrire" enctype="multipart/form-data">
 
+    <label class="label" for="username"> <b>Nom d'utilisateur</b></label>
+    <input id="username" class="input" type="text" placeholder="sera visible par les utilisateurs du site"
+      name="username" />
 
-  <label class="label" for="username"> <b>Nom d'utilisateur</b></label> 
-  <input id="username" class="input" type="text" placeholder="sera visible par les utilisateurs du site"
-    name="username" />
+    <label class="label" for="email"><b>Email</b></label>
+    <input id="email" class="input" type="email" placeholder="doit être une adresse valide" name="email">
 
-  <label class="label" for="email"><b>Email</b></label>
- <input id="email" class="input" type="email" placeholder="doit être une adresse valide" name="email"
-   >
-
-  <label class="label" for="password"><b>Mot de passe</b></label>
-  <p id="icon-toggle">
+    <label class="label" for="password"><b>Mot de passe</b></label>
+    <p id="icon-toggle">
       <i class="fas fa-eye"></i>
     </p>
-  <input id="password" class="input" type="password" placeholder="assez complexe par mesure de sécurité"
-    name="password" >
+    <input id="password" class="input" type="password" placeholder="assez complexe par mesure de sécurité"
+      name="password">
 
- <label for="avatar" class="label"><b>Choisir son Avatar</b></label>
-        <input id="avatar" type="file" class="" name="avatar"> 
-  
-<input id="sinscrire-ok" type="submit" value="s'inscrire">
-  {{!-- <button class="btn">ok </button> --}}
-   <p class="pasdecompte">Déjà un compte?  <a href="sidentifier">S'identifier</a></p>
-</form>
+    <label for="avatar" class="label"><b>Choisir son Avatar</b></label>
+    <input id="avatar" type="file" class="" name="avatar">
+
+    <input id="sinscrire-ok" type="submit" value="s'inscrire">
+ 
+    <p class="pasdecompte">Déjà un compte? <a href="sidentifier">S'identifier</a></p>
+  </form>
 </section>
