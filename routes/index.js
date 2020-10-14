@@ -74,9 +74,9 @@ async function sendMail(infos) {
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: ` ${infos.from} `, // sender address
-    to: mail_user_address, // list of receivers
-    subject: infos.subject, // Subject line
+    from: ` ${infos.email} `, //  address de la prsn
+    to: mail_user_address, // mon email denvoi
+    subject: infos.sujet, // Subject 
     text: infos.message, // plain text body
     html: `<div>${infos.message}</div>`, // html body
   });
@@ -87,7 +87,7 @@ router.post("/contact", async (req, res, next) => {
   console.log(req.body);
   sendMail(req.body)
     .then(() => {
-      console.log("mail: ");
+      // console.log("mail: ");
       req.flash("success", "Votre message nous à été envoyé. Il sera traité rapidement .");
       res.redirect("/contact");
     })

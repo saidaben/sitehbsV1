@@ -12,18 +12,17 @@
 
 <hgroup class="hgroup-profil">
     <h2 id="apropos">Mes <span>favoris </span>.</h2>
-    <h3> Ma liste d'articles archivés.</h3>
+         <h3 > Vous avez {{favoris.length}} articles en archives.</h3>
+
 </hgroup>
 <div class="container-favoris">
-    {{#each favoris}}
-    {{!-- <p>{{this.favoris}}</p> --}}
-    {{!-- <p>{{this.favoris.titre}}</p>  --}}
-    {{!-- <p>{{favoris.titre}}</p> --}}
-    {{!-- {{this.titre}} --}}
-    {{!-- <p>{{favoris.[0]}}</p>  --}}
-    Vous avez {{favoris.length}} articles en archives.
 
-    {{/each}}
+        {{#each favoris}}
+
+      <h2 class="titre-fav">{{this.titre}}</h2>  
+        {{{this.contenu}}}
+   {{/each}}
+
 </div>
 
 

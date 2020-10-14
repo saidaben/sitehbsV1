@@ -10,6 +10,12 @@ body {
 
 }
 
+/* surlignement  */
+::selection {
+  color: white;
+  background-color: black;
+} 
+
 header {
   height: 156px;
   text-align: center;
@@ -1069,7 +1075,10 @@ a.fermer::after {
   margin: auto;
   flex-direction: column;
   max-width: 690px;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
   align-items: center;
+  line-height: 2em;
 }
+
+.titre-fav{padding: 20px 0;}

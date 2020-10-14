@@ -13,12 +13,16 @@ const protectAdminRoute = require("./../middlewares/protectAdminRoute");
 //on cherches tout les users pr afficher les info et on populate pr afficher les fav
 router.get("/profile", protectRoute, (req, res) => {
   userModel
-    .find()
+    .findById(req.session.currentUser._id)
     .populate("favoris")
     .then((dbRes) => {
+      console.log(dbRes);
+      //console.log(typeof dbRes[0].favoris);
       res.render("profile", {
         title: 'mon profile',
-        favoris: dbRes,
+      
+        favoris: dbRes.favoris,
+        
       });
 
     });
