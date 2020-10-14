@@ -52,29 +52,29 @@ app.use(express.urlencoded({
 app.use(cookieParser()); //recup les cookies sous forme dobj req.cookie
 
 // configurer la session pr garder les info en memoirs vive apres install connect flash et express session
-// app.use(
-//   session({
-//     secret: process.env.SESSION_SECRET,
-//     resave: true,
-//     saveUninitialized: true,
-//   })
-// );
-
-// config de la SESSION 
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    cookie: {
-      maxAge: 60000
-    }, // en millisec
-    store: new MongoStore({
-      mongooseConnection: mongoose.connection,
-      ttl: 24 * 60 * 60, // 1 jours
-    }),
-    saveUninitialized: true,
     resave: true,
+    saveUninitialized: true,
   })
 );
+
+// config de la SESSION 
+// app.use(
+//   session({
+//     secret: process.env.SESSION_SECRET,
+//     cookie: {
+//       maxAge: 60000
+//     }, // en millisec
+//     store: new MongoStore({
+//       mongooseConnection: mongoose.connection,
+//       ttl: 24 * 60 * 60, // 1 jours
+//     }),
+//     saveUninitialized: true,
+//     resave: true,
+//   })
+// );
 
 app.use(flash());
 

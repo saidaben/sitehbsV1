@@ -163,7 +163,7 @@ router.get("/fondamentaux", (req, res) => {
 });
 
 // afficher les articles hors lign en brouillon
-router.get("/brouillon", (req, res) => {
+router.get("/brouillon", exclusifAdminEditor, (req, res) => {
   articleModel
     .find()
     .then((dbRes) => {
@@ -208,13 +208,14 @@ router.post("/article/delete/:id", protectAdminRoute, (req, res) => {
     .findByIdAndDelete(req.params.id)
     .then(dbRes => {
       // console.log(dbRes)
+      req.flash("success", "l'Article à bien été supprimé.");
       res.redirect("/dashboard/manage-articles");
     })
     .catch(dbErr => console.error(dbErr))
 });
 
 //va chercher le redacteurs qui est lusernam ds la table article joint à la table user
-router.get("/article/edit/:id", protectAdminRoute, (req, res) => {
+router.get("/article/edit/:id", exclusifAdminEditor, (req, res) => {
   articleModel
     .findById(req.params.id) //donnee de l url
     .then(article => {
@@ -231,7 +232,7 @@ router.get("/article/edit/:id", protectAdminRoute, (req, res) => {
 });
 
 // edit des articles 
-router.post("/article/edit/:id", protectAdminRoute,
+router.post("/article/edit/:id", exclusifAdminEditor,
   uploader.single("image"),
   (req, res, next) => {
     const updatedArticle = req.body;
@@ -241,7 +242,7 @@ router.post("/article/edit/:id", protectAdminRoute,
       .findByIdAndUpdate(req.params.id, updatedArticle)
       .then((updatedArticle) => {
         // console.log("maj >>> ", updatedArticle);
-        req.flash("success", "l'Article à bien été modifiée.");
+        req.flash("success", "l'article a bien été modifié.");
 
         res.redirect("/dashboard/manage-articles");
 
@@ -250,7 +251,7 @@ router.post("/article/edit/:id", protectAdminRoute,
   });
 
 //manage articles partage dexperience
-router.get("/dashboard/manage-partagedexperiences", protectAdminRoute,
+router.get("/dashboard/manage-partagedexperiences", exclusifAdminEditor,
 
   (req, res, next) => {
     articleModel
@@ -266,7 +267,7 @@ router.get("/dashboard/manage-partagedexperiences", protectAdminRoute,
 );
 
 //manage articles conseil de pro
-router.get("/dashboard/manage-conseilsdeprofessionnels", protectAdminRoute,
+router.get("/dashboard/manage-conseilsdeprofessionnels", exclusifAdminEditor,
 
   (req, res, next) => {
     articleModel
@@ -282,7 +283,7 @@ router.get("/dashboard/manage-conseilsdeprofessionnels", protectAdminRoute,
 );
 
 //manage articles les fonda
-router.get("/dashboard/manage-fondamentaux", protectAdminRoute,
+router.get("/dashboard/manage-fondamentaux", exclusifAdminEditor,
 
   (req, res, next) => {
     articleModel
@@ -298,7 +299,7 @@ router.get("/dashboard/manage-fondamentaux", protectAdminRoute,
 );
 
 //manage les brouillons
-router.get("/dashboard/manage-brouillons", protectAdminRoute,
+router.get("/dashboard/manage-brouillons", exclusifAdminEditor,
 
   (req, res, next) => {
     articleModel

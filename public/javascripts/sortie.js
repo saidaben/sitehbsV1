@@ -109,13 +109,13 @@ function filtersorties() {
 
         } else {
             li[i].style.display = "none" //sinon il le masque on cache le li
-            erreur.innerHTML = `Oups! aucune sortie trouvés, verifiez l'orthographe.` //et on affiche un message d'erreur
+            erreur.innerHTML = `Oups! aucune sortie trouvée, verifiez l'orthographe.` //et on affiche un message d'erreur
 
         }
     }
 }
 
-if (input) input.oninput = filtersorties //on affiche la list qu'on à  filtré précédement dans l'input 
+if ( input!=null) input.oninput = filtersorties //sinon null, /on affiche la list qu'on à  filtré précédement dans l'input 
 
 
 //on recup le ul et la fonction pagination avc les livre et le nombre de page voulu en params
