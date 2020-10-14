@@ -353,7 +353,7 @@ router.get("/article/favoris/:id", protectRoute, async (req, res, next) => {
       // console.log("added", updated);
       //on mentionne a l'utilisateur et on redirige 
       req.flash("success", "Vos favoris ont été mis à jours");
-      res.redirect("/articles");
+      res.redirect("/articles-archives");
     } catch (err) {
       console.error(err)
     }
@@ -364,4 +364,27 @@ router.get("/article/favoris/:id", protectRoute, async (req, res, next) => {
     next(Err)
   }
 });
+
+
+//article archives favoris qui vient ds user 
+router.get("/articles-archives", protectRoute,
+
+  (req, res, next) => {
+    userModel
+    .findById(req.session.currentUser._id)
+    .populate("favoris")
+    .then((dbRes) => {
+      console.log(dbRes);
+      res.render("articles-archives", {
+        title: 'mon profile',
+
+        favoris: dbRes.favoris,
+
+      });
+
+    });
+});
+
+
+
 module.exports = router;

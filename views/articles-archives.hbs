@@ -1,0 +1,16 @@
+
+<hgroup class="hgroup-profil">
+    <h2 id="apropos">Mes <span>favoris </span>.</h2>
+   <h3> Vous avez {{favoris.length}} articles en archives. </h3>
+</hgroup>
+{{#each favoris}}
+<div class="container-archives">
+
+    
+
+    <h2 class="titre-fav"><a href="/article/favoris/{{this._id}}"><img class="favoris" src="/images/fav.png" alt=""></a> {{this.titre}}</h2>
+   {{{this.contenu}}}
+
+
+</div>
+{{/each}}

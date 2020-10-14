@@ -8,23 +8,15 @@
 </div>
 
 
-
-
 <hgroup class="hgroup-profil">
     <h2 id="apropos">Mes <span>favoris </span>.</h2>
-         <h3 > Vous avez {{favoris.length}} articles en archives.</h3>
-
+   <h3> Cliquez sur le signet pour ajouter un article en favoris ou le retirer. </h3>
 </hgroup>
 <div class="container-favoris">
 
-        {{#each favoris}}
-
-      <h2 class="titre-fav">{{this.titre}}</h2>  
-        {{{this.contenu}}}
-   {{/each}}
+   <h3> <a href="/articles-archives">Vous avez {{favoris.length}} articles en archives.</a> </h3>
 
 </div>
-
 
 
 

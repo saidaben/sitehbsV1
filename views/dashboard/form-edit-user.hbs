@@ -5,12 +5,21 @@
   </hgroup>
 
   <section class="container-inscr">
+
+    
     <p class="p-info-user"><i class="fas fa-angle-right"></i>Id : {{user.id}}</p>
     <p class="p-info-user"><i class="fas fa-angle-right"></i>Prénom : {{user.username}}</p>
     <p class="p-info-user"><i class="fas fa-angle-right"></i>Email : {{user.email}}</p>
     <p class="p-info-user"><i class="fas fa-angle-right"></i>Rôle : {{user.role}}</p>
-    <p class="p-info-user"><i class="fas fa-angle-right"></i>Inscrit depuis le : {{user.date_inscription}}</p>
+    {{!-- <p class="p-info-user"><i class="fas fa-angle-right"></i>Inscrit depuis le : {{user.date_inscription}}</p> --}}
+     <p class="p-info-user"><i class="fas fa-angle-right">
+
+     </i>Inscrit depuis le : {{#format user.date_inscription}}{{/format}}
+     
+     </p>
+
     {{!-- <p class="p-info-user"><i class="fas fa-angle-right"></i>moment{{user.date_inscription}}.format("DD/MM/YYYY") --}}
+
   </section>
 
   <hgroup>
@@ -25,13 +34,13 @@
     <div class="role">
 
       <label for="radio-user" class="label">user</label>
-      <input id="radio-user" name="role" value="user" type="radio">
+      <input id="radio-user" name="role" value="user" type="radio"  {{setCheckedbox "user" user.role }}>
 
       <label for="radio-editor" class="label">editor</label>
-      <input id="radio-editor" name="role" value="editor" type="radio">
+      <input id="radio-editor" name="role" value="editor" type="radio"  {{setCheckedbox "editor" user.role }}>
 
       <label for="radio-admin" class="label">admin</label>
-      <input id="radio-admin" name="role" value="admin" type="radio">
+      <input id="radio-admin" name="role" value="admin" type="radio"  {{setCheckedbox "admin" user.role }}>
 
     </div>
 

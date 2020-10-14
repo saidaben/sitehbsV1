@@ -20,9 +20,9 @@ router.get("/profile", protectRoute, (req, res) => {
       //console.log(typeof dbRes[0].favoris);
       res.render("profile", {
         title: 'mon profile',
-      
+
         favoris: dbRes.favoris,
-        
+
       });
 
     });
@@ -57,7 +57,10 @@ router.get("/users/edit/:id", protectAdminRoute, (req, res, next) => {
         title: "Editer un utilisateur",
       });
     })
-    .catch(next);
+    .catch((err) => {
+      console.log(err);
+      next(err)
+    });
 });
 
 

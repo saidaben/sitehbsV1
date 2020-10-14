@@ -14,7 +14,7 @@
         <div class="para">
             <p class="ptexte" id="ptexte">{{{article.contenu}}}
             </p>
-            <p class="pauteur"> Edité par: {{article.redacteurs.username}} </p>
+            <p class="pauteur"> Edité par: {{article.redacteurs.username}}, le : {{#formatage article.date}}{{/formatage}} </p>
         </div>
     </div>
 
