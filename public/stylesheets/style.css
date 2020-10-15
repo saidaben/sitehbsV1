@@ -730,7 +730,7 @@ a {
   outline: 1px solid transparent;
   -webkit-perspective: inherit;
   perspective: inherit;
-  z-index: 0;
+  z-index: 2;
 }
 
 .container-img .back {
@@ -764,8 +764,7 @@ a {
 .front .inner p {
   font-size: 2rem;
   margin-bottom: 2rem;
-  position: absolute;
-  z-index:-1
+  position: relative;
 }
 
 .front .inner p:after {
