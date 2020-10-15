@@ -765,6 +765,7 @@ a {
   font-size: 2rem;
   margin-bottom: 2rem;
   position: relative;
+  z-index:2
 }
 
 .front .inner p:after {
