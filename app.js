@@ -1,4 +1,4 @@
-require("dotenv").config(); //recup les info de config 
+// require("dotenv").config(); //recup les info de config 
 require("./config/mongodb"); // database initial setup
 require("./helpers/hbs"); // utils for hbs templates
 
