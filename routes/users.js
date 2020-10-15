@@ -1,6 +1,6 @@
 const express = require("express");
 const router = new express.Router();
-const userModel = require("./../models/User");
+const userModel = require("./../Models/User");
 const bcrypt = require("bcrypt");
 const uploader = require("./../config/cloudinary");
 const protectRoute = require("./../middlewares/protectPrivateRoute");

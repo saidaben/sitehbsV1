@@ -1,7 +1,7 @@
 const express = require("express");
 const router = new express.Router();
 const bcrypt = require("bcrypt"); //librairie ds node npm 
-const userModel = require("./../models/User");
+const userModel = require("./../Models/User");
 const uploader = require("./../config/cloudinary");
 // uploader est un middleware, cad une fonction qui s'insère entre une requête http et une réponse http
 
