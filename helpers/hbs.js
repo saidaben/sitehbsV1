@@ -19,35 +19,35 @@ awesome, 1 is less thant 10 !!!
 
 */
 
-hbs.registerHelper("compare", function(lvalue, rvalue, options) {
+hbs.registerHelper("compare", function (lvalue, rvalue, options) {
   if (arguments.length < 3)
     throw new Error("Handlerbars Helper 'compare' needs 2 parameters");
 
   var operator = options.hash.operator || "==";
 
   var operators = {
-    "==": function(l, r) {
+    "==": function (l, r) {
       return l == r;
     },
-    "===": function(l, r) {
+    "===": function (l, r) {
       return l === r;
     },
-    "!=": function(l, r) {
+    "!=": function (l, r) {
       return l != r;
     },
-    "<": function(l, r) {
+    "<": function (l, r) {
       return l < r;
     },
-    ">": function(l, r) {
+    ">": function (l, r) {
       return l > r;
     },
-    "<=": function(l, r) {
+    "<=": function (l, r) {
       return l <= r;
     },
-    ">=": function(l, r) {
+    ">=": function (l, r) {
       return l >= r;
     },
-    typeof: function(l, r) {
+    typeof: function (l, r) {
       return typeof l == r;
     }
   };
@@ -64,7 +64,7 @@ hbs.registerHelper("compare", function(lvalue, rvalue, options) {
   } else {
     return options.inverse(this);
   }
-}); 
+});
 
 
 
@@ -73,9 +73,9 @@ hbs.registerHelper("compare", function(lvalue, rvalue, options) {
 hbs.registerHelper("preventParticipation", function (eventDate) {
   // return eventDate < actualDate ? true : false;
   // actualDate = moment().format('Do MMMM YYYY, h:mm a'); // September 25th 2020, 1:05:37 pm
-  console.log("DATE NON FORMATE : >>>>>",eventDate)
-  const date = moment(eventDate).format("MMM Do YY");  
-  console.log("juste la date>>>>>>>>>>>",date)
+  console.log("DATE NON FORMATE : >>>>>", eventDate)
+  const date = moment(eventDate).format("MMM Do YY");
+  console.log("juste la date>>>>>>>>>>>", date)
   // const rightNow = moment(actualDate).format('Do MMMM YYYY, h:mm a')
   //console.log("eventDate", date);
   // console.log("actualDate", actualDate);
@@ -90,12 +90,12 @@ hbs.registerHelper("preventParticipation", function (eventDate) {
 
 
 
-hbs.registerHelper("format", function(date_inscription){
-  return moment(date_inscription).format('DD-MM-YYYY')
+hbs.registerHelper("format", function (date_inscription) {
+  return moment(date_inscription).locale('fr').format('DD-MM-YYYY')
 });
 
-hbs.registerHelper("formatage", function(date){
-  return moment(date).format('DD-MM-YYYY')
+hbs.registerHelper("formatage", function (date) {
+  return moment(date).locale('fr').format('DD-MM-YYYY')
 });
 
 
@@ -156,11 +156,10 @@ hbs.registerHelper("setSelected", function (optionValue, searchedValue) {
   return optionValue.toString() === searchedValue.toString() ? "selected" : "";
 });
 
-hbs.registerHelper("isParticipating", function(participants){
-  if(participants){
+hbs.registerHelper("isParticipating", function (participants) {
+  if (participants) {
     return true
-  }else{
-  return false
+  } else {
+    return false
   }
 });
-

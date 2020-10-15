@@ -14,7 +14,7 @@ body {
 ::selection {
   color: white;
   background-color: plum;
-} 
+}
 
 header {
   height: 156px;
@@ -1078,10 +1078,10 @@ a.fermer::after {
   padding-right: 20px;
   padding-left: 20px;
   align-items: center;
-  
+
 }
 
-.container-archives{
+.container-archives {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -1101,4 +1101,6 @@ a.fermer::after {
   margin-bottom: 25px;
 }
 
-.titre-fav{padding: 20px 0;}
+.titre-fav {
+  padding: 20px 0;
+}
