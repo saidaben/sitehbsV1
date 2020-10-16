@@ -156,6 +156,12 @@ header>a {
 
 /* inferieur a 768 = tablette*/
 @media screen and (max-width:768px) {
+
+    header {
+       
+        z-index:10000
+      }
+
     .container-home {
         padding-left: 3px;
         padding-right: 3px;
