@@ -204,7 +204,7 @@ header>a {
         transform: translateX(100%);
         /* transition juste syr transform pas sur tout le site */
         transition: transform .5s ease-in-out;
-        z-index: 3;
+        z-index: 10000;
     }
 
     /* en js pr changer la nav */
