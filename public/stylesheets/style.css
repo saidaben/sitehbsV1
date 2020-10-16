@@ -786,6 +786,8 @@ a {
   font-weight: 300;
 }
 
+.p-wrapper{z-index:-2}
+
 /* media pour les cards */
 @media screen and (max-width: 64rem) {
   .col {
