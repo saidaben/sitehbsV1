@@ -690,8 +690,6 @@ a {
   height: 100%;
   content: '';
   display: block;
-  opacity: .6;
-  background-color: #000;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 10px;
