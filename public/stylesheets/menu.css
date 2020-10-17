@@ -157,10 +157,14 @@ header>a {
 /* inferieur a 768 = tablette*/
 @media screen and (max-width:768px) {
 
+    .footer {
+        text-align: center;
+    }
+
     header {
-       
-        z-index:10000
-      }
+
+        z-index: 10000
+    }
 
     .container-home {
         padding-left: 3px;
@@ -240,7 +244,7 @@ header>a {
     .menu {
         position: fixed;
         top: 0;
-        z-index:10000
+        z-index: 10000
     }
 
 
