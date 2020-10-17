@@ -14,6 +14,8 @@ module.exports = function exposeLoginStatus(req, res, next) {
     res.locals.isAdmin = req.session.currentUser.role === "admin";
     res.locals.isEditor = req.session.currentUser.role === "editor";
     res.locals.isUser = req.session.currentUser.role === "user";
+    res.locals.isRedacteur = req.session.currentUser.role === "editor" || "admin" ;
+
 
   }
   next();

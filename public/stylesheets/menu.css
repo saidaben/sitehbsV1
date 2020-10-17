@@ -157,10 +157,6 @@ header>a {
 /* inferieur a 768 = tablette*/
 @media screen and (max-width:768px) {
 
-    .footer {
-        text-align: center;
-    }
-
     header {
 
         z-index: 10000
